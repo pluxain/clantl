@@ -26,6 +26,10 @@ const items: Ref<KillerItem[]> = ref([
   { label: "procédure de réanimation", keyword: "prête", checked: false },
   { label: "responsable de la surveillance", keyword: "nommé", checked: false },
 ]);
+
+function check(index: number) {
+  items.value[index].checked = true;
+}
 </script>
 
 <template>
@@ -46,7 +50,7 @@ const items: Ref<KillerItem[]> = ref([
         <dt
           :class="[item.checked ? 'bg-green-500 text-white' : 'bg-gray-100']"
           class="cursor-pointer p-4 text-center font-bold uppercase"
-          @click.once="item.checked = !item.checked"
+          @click.once="check(index)"
         >
           {{ item.keyword }}
         </dt>
