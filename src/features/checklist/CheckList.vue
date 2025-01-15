@@ -28,7 +28,11 @@ const items: Ref<KillerItem[]> = ref([
 ]);
 
 function check(index: number) {
-  items.value[index].checked = true;
+  if (index === 0) {
+    items.value[index].checked = true;
+  } else if (items.value[index - 1].checked) {
+    items.value[index].checked = true;
+  }
 }
 </script>
 
@@ -50,7 +54,7 @@ function check(index: number) {
         <dt
           :class="[item.checked ? 'bg-green-500 text-white' : 'bg-gray-100']"
           class="cursor-pointer p-4 text-center font-bold uppercase"
-          @click.once="check(index)"
+          @click="check(index)"
         >
           {{ item.keyword }}
         </dt>
