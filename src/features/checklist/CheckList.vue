@@ -1,19 +1,28 @@
 <script setup lang="ts">
 type KillerItem = {
+  checked: boolean;
   keyword: string;
   label: string;
 };
 const group = "Check-List - Anesthésie";
 const step = "Avant Induction";
 const items: KillerItem[] = [
-  { label: "matériel d'intubation", keyword: "vérifié" },
-  { label: "oxygène", keyword: "disponible" },
-  { label: "circuit / Ballon de réanimation", keyword: "testé" },
-  { label: "valve d'échappement", keyword: "Ouverte" },
-  { label: "ballonnet sonde endotrachéale", keyword: "étanche" },
-  { label: "cathéter", keyword: "fonctionnel" },
-  { label: "procédure de réanimation", keyword: "prête" },
-  { label: "responsable de la surveillance", keyword: "nommé" },
+  { label: "matériel d'intubation", keyword: "vérifié", checked: true },
+  { label: "oxygène", keyword: "disponible", checked: false },
+  {
+    label: "circuit / Ballon de réanimation",
+    keyword: "testé",
+    checked: false,
+  },
+  { label: "valve d'échappement", keyword: "Ouverte", checked: false },
+  {
+    label: "ballonnet sonde endotrachéale",
+    keyword: "étanche",
+    checked: false,
+  },
+  { label: "cathéter", keyword: "fonctionnel", checked: false },
+  { label: "procédure de réanimation", keyword: "prête", checked: false },
+  { label: "responsable de la surveillance", keyword: "nommé", checked: false },
 ];
 </script>
 
@@ -25,14 +34,17 @@ const items: KillerItem[] = [
     </div>
     <dl class="divide-y text-lg">
       <div
-        v-for="({ keyword, label }, index) in items"
+        v-for="({ checked, keyword, label }, index) in items"
         :key="index"
         class="grid grid-cols-[minmax(1px,_1fr),_25%] gap-4"
       >
         <dd class="p-4 font-bold uppercase">
           {{ label }}
         </dd>
-        <dt class="bg-gray-100 p-4 text-center font-bold uppercase">
+        <dt
+          :class="[checked ? 'bg-green-500 text-white' : 'bg-gray-100']"
+          class="p-4 text-center font-bold uppercase"
+        >
           {{ keyword }}
         </dt>
       </div>
