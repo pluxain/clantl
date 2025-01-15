@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import { ref } from "vue";
+import type { Ref } from "vue";
 type KillerItem = {
   checked: boolean;
   keyword: string;
@@ -6,8 +8,8 @@ type KillerItem = {
 };
 const group = "Check-List - Anesthésie";
 const step = "Avant Induction";
-const items: KillerItem[] = [
-  { label: "matériel d'intubation", keyword: "vérifié", checked: true },
+const items: Ref<KillerItem[]> = ref([
+  { label: "matériel d'intubation", keyword: "vérifié", checked: false },
   { label: "oxygène", keyword: "disponible", checked: false },
   {
     label: "circuit / Ballon de réanimation",
@@ -23,7 +25,7 @@ const items: KillerItem[] = [
   { label: "cathéter", keyword: "fonctionnel", checked: false },
   { label: "procédure de réanimation", keyword: "prête", checked: false },
   { label: "responsable de la surveillance", keyword: "nommé", checked: false },
-];
+]);
 </script>
 
 <template>
@@ -34,18 +36,19 @@ const items: KillerItem[] = [
     </div>
     <dl class="divide-y text-lg">
       <div
-        v-for="({ checked, keyword, label }, index) in items"
+        v-for="(item, index) in items"
         :key="index"
         class="grid grid-cols-[minmax(1px,_1fr),_25%] gap-4"
       >
         <dd class="p-4 font-bold uppercase">
-          {{ label }}
+          {{ item.label }}
         </dd>
         <dt
-          :class="[checked ? 'bg-green-500 text-white' : 'bg-gray-100']"
-          class="p-4 text-center font-bold uppercase"
+          :class="[item.checked ? 'bg-green-500 text-white' : 'bg-gray-100']"
+          class="cursor-pointer p-4 text-center font-bold uppercase"
+          @click.once="item.checked = !item.checked"
         >
-          {{ keyword }}
+          {{ item.keyword }}
         </dt>
       </div>
     </dl>
