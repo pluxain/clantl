@@ -47,10 +47,9 @@ function check(index: number) {
     list.value.items[index].checked = true;
   } else if (list.value.items[index - 1].checked) {
     list.value.items[index].checked = true;
-  }
-
-  if (index === list.value.items.length - 1) {
-    list.value.completed = true;
+    if (index === list.value.items.length - 1) {
+      list.value.completed = true;
+    }
   }
 }
 </script>
