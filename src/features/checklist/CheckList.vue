@@ -1,6 +1,8 @@
 <script setup lang="ts">
 import { ref } from "vue";
 import type { Ref } from "vue";
+import { ClantlNotification } from "@components";
+
 type Checklist = {
   completed: boolean;
   items: KillerItem[];
@@ -88,4 +90,13 @@ function check(index: number) {
       </div>
     </dl>
   </section>
+  <ClantlNotification
+    v-if="list.completed"
+    severity="success"
+    css="p-8 text-center"
+  >
+    <h4 class="mb-4 text-3xl font-bold">Check-List Completed !</h4>
+    <p class="text-xl">You can now access the next phase</p>
+    <p class="text-4xl font-bold motion-safe:animate-bounce">{{ "\u2304" }}</p>
+  </ClantlNotification>
 </template>
