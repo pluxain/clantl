@@ -11,8 +11,12 @@
     "noUncheckedSideEffectImports": true,
     "baseUrl": ".",
     "paths": {
+      "@components": ["src/components/"],
+      "@components/*": ["src/components/*"],
       "@features": ["src/features/"],
-      "@features/*": ["src/features/*"]
+      "@features/*": ["src/features/*"],
+      "@types": ["src/types/"],
+      "@types/*": ["src/types/*"]
     }
   },
   "include": ["src/**/*.ts", "src/**/*.tsx", "src/**/*.vue"]
