@@ -58,7 +58,7 @@ function check(index: number) {
   <section class="border-2 border-black">
     <div
       :class="[
-        list.completed ? 'bg-green-500 text-white' : 'bg-gray-400 text-black',
+        list.completed ? 'bg-success text-white' : 'bg-secondary text-black',
       ]"
       class="border-b-2 border-black p-4"
     >
@@ -77,7 +77,9 @@ function check(index: number) {
           {{ item.label }}
         </dd>
         <dt
-          :class="[item.checked ? 'bg-green-500 text-white' : 'bg-gray-100']"
+          :class="[
+            item.checked ? 'bg-success text-white' : 'bg-secondary-accent',
+          ]"
           class="cursor-pointer p-4 text-center font-bold uppercase"
           @click="check(index)"
         >
