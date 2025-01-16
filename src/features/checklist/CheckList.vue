@@ -1,6 +1,8 @@
 <script setup lang="ts">
 import { ref } from "vue";
 import type { Ref } from "vue";
+import { ClantlNotification } from "@components";
+
 type Checklist = {
   completed: boolean;
   items: KillerItem[];
@@ -58,7 +60,7 @@ function check(index: number) {
   <section class="border-2 border-black">
     <div
       :class="[
-        list.completed ? 'bg-green-500 text-white' : 'bg-gray-400 text-black',
+        list.completed ? 'bg-success text-white' : 'bg-secondary text-black',
       ]"
       class="border-b-2 border-black p-4"
     >
@@ -77,7 +79,9 @@ function check(index: number) {
           {{ item.label }}
         </dd>
         <dt
-          :class="[item.checked ? 'bg-green-500 text-white' : 'bg-gray-100']"
+          :class="[
+            item.checked ? 'bg-success text-white' : 'bg-secondary-accent',
+          ]"
           class="cursor-pointer p-4 text-center font-bold uppercase"
           @click="check(index)"
         >
@@ -86,4 +90,13 @@ function check(index: number) {
       </div>
     </dl>
   </section>
+  <ClantlNotification
+    v-if="list.completed"
+    severity="success"
+    css="p-8 text-center"
+  >
+    <h4 class="mb-4 text-3xl font-bold">Check-List Completed !</h4>
+    <p class="text-xl">You can now access the next phase</p>
+    <p class="text-4xl font-bold motion-safe:animate-bounce">{{ "\u2304" }}</p>
+  </ClantlNotification>
 </template>
