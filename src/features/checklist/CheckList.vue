@@ -40,7 +40,7 @@ const list: Ref<Checklist> = ref({
       verified: false,
     },
   ],
-  realm: "Check-List - Anesthésie",
+  realm: "Anesthésie",
   step: "Avant Induction",
 });
 
@@ -99,10 +99,10 @@ function check(index: number) {
     severity="success"
     css="p-8 text-center"
   >
-    <h4 class="mb-4 text-3xl font-bold uppercase">Check-List Completed !</h4>
-    <p class="text-3xl font-bold uppercase">
-      You can now access the next phase
-    </p>
+    <h4 class="mb-4 text-3xl font-bold uppercase">
+      liste de vérification complétée !
+    </h4>
+    <p class="text-3xl font-bold uppercase">prêt pour l'induction</p>
     <p class="text-4xl font-bold motion-safe:animate-bounce">{{ "\u2304" }}</p>
   </ClantlNotification>
 </template>
