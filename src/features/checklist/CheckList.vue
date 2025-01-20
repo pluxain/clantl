@@ -93,6 +93,9 @@ function check(index: number) {
         </dt>
       </div>
     </dl>
+    <div class="text-center text-lg">
+      &copy; Paul Coppens &amp; Fabrice Levoyer
+    </div>
   </section>
   <ClantlNotification
     v-if="list.completed"
