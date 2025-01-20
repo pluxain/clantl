@@ -60,11 +60,11 @@ function check(index: number) {
   <section class="border-b-1 border-2 border-secondary">
     <div class="border-b-2 border-secondary bg-warning p-4 text-white">
       <h2 class="text-center text-4xl uppercase">{{ list.realm }}</h2>
-      <h3 class="text-center text-3xl uppercase">
+      <h3 class="text-center text-4xl font-bold uppercase">
         {{ "<" }} {{ list.step }} {{ ">" }}
       </h3>
     </div>
-    <dl class="text-lg">
+    <dl class="text-2xl">
       <div
         v-for="(item, index) in list.items"
         :key="index"
@@ -82,7 +82,7 @@ function check(index: number) {
           {{ item.label }}
         </dd>
         <dt
-          class="p-4 text-center font-bold uppercase"
+          class="p-4 font-bold uppercase"
           :class="[
             item.checked
               ? 'border-b border-white bg-success text-white'
@@ -99,8 +99,10 @@ function check(index: number) {
     severity="success"
     css="p-8 text-center"
   >
-    <h4 class="mb-4 text-3xl font-bold">Check-List Completed !</h4>
-    <p class="text-xl">You can now access the next phase</p>
+    <h4 class="mb-4 text-3xl font-bold uppercase">Check-List Completed !</h4>
+    <p class="text-3xl font-bold uppercase">
+      You can now access the next phase
+    </p>
     <p class="text-4xl font-bold motion-safe:animate-bounce">{{ "\u2304" }}</p>
   </ClantlNotification>
 </template>
