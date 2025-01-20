@@ -73,17 +73,17 @@ function check(index: number) {
       <div
         v-for="(item, index) in list.items"
         :key="index"
-        class="grid grid-cols-[minmax(1px,_1fr),_25%] gap-4"
+        class="grid cursor-pointer grid-cols-[minmax(1px,_1fr),_25%] gap-4"
+        @click="check(index)"
       >
         <dd class="p-4 font-bold uppercase">
           {{ item.label }}
         </dd>
         <dt
+          class="p-4 text-center font-bold uppercase"
           :class="[
             item.checked ? 'bg-success text-white' : 'bg-secondary-accent',
           ]"
-          class="cursor-pointer p-4 text-center font-bold uppercase"
-          @click="check(index)"
         >
           {{ item.keyword }}
         </dt>
