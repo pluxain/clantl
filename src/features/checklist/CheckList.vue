@@ -57,32 +57,36 @@ function check(index: number) {
 </script>
 
 <template>
-  <section class="border-2 border-black">
-    <div
-      :class="[
-        list.completed ? 'bg-success text-white' : 'bg-secondary text-black',
-      ]"
-      class="border-b-2 border-black p-4"
-    >
+  <section class="border-b-1 border-2 border-secondary">
+    <div class="border-b-2 border-secondary bg-warning p-4 text-white">
       <h2 class="text-center text-4xl uppercase">{{ list.realm }}</h2>
       <h3 class="text-center text-3xl uppercase">
         {{ "<" }} {{ list.step }} {{ ">" }}
       </h3>
     </div>
-    <dl class="divide-y text-lg">
+    <dl class="text-lg">
       <div
         v-for="(item, index) in list.items"
         :key="index"
-        class="grid cursor-pointer grid-cols-[minmax(1px,_1fr),_25%] gap-4"
+        class="grid cursor-pointer grid-cols-[minmax(1px,_1fr),_25%]"
         @click="check(index)"
       >
-        <dd class="p-4 font-bold uppercase">
+        <dd
+          class="p-4 font-bold uppercase"
+          :class="[
+            item.checked
+              ? 'border-b border-success text-success'
+              : 'border-b border-secondary text-black',
+          ]"
+        >
           {{ item.label }}
         </dd>
         <dt
           class="p-4 text-center font-bold uppercase"
           :class="[
-            item.checked ? 'bg-success text-white' : 'bg-secondary-accent',
+            item.checked
+              ? 'border-b border-white bg-success text-white'
+              : 'border-b border-secondary bg-secondary-accent',
           ]"
         >
           {{ item.keyword }}
