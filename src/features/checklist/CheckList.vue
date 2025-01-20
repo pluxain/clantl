@@ -11,7 +11,7 @@ type Checklist = {
 };
 
 type KillerItem = {
-  checked: boolean;
+  verified: boolean;
   keyword: string;
   label: string;
 };
@@ -19,25 +19,25 @@ type KillerItem = {
 const list: Ref<Checklist> = ref({
   completed: false,
   items: [
-    { label: "matériel d'intubation", keyword: "vérifié", checked: false },
-    { label: "oxygène", keyword: "disponible", checked: false },
+    { label: "matériel d'intubation", keyword: "vérifié", verified: false },
+    { label: "oxygène", keyword: "disponible", verified: false },
     {
       label: "circuit / Ballon de réanimation",
       keyword: "testé",
-      checked: false,
+      verified: false,
     },
-    { label: "valve d'échappement", keyword: "Ouverte", checked: false },
+    { label: "valve d'échappement", keyword: "Ouverte", verified: false },
     {
       label: "ballonnet sonde endotrachéale",
       keyword: "étanche",
-      checked: false,
+      verified: false,
     },
-    { label: "cathéter", keyword: "fonctionnel", checked: false },
-    { label: "procédure de réanimation", keyword: "prête", checked: false },
+    { label: "cathéter", keyword: "fonctionnel", verified: false },
+    { label: "procédure de réanimation", keyword: "prête", verified: false },
     {
       label: "responsable de la surveillance",
       keyword: "nommé",
-      checked: false,
+      verified: false,
     },
   ],
   realm: "Check-List - Anesthésie",
@@ -46,9 +46,9 @@ const list: Ref<Checklist> = ref({
 
 function check(index: number) {
   if (index === 0) {
-    list.value.items[index].checked = true;
-  } else if (list.value.items[index - 1].checked) {
-    list.value.items[index].checked = true;
+    list.value.items[index].verified = true;
+  } else if (list.value.items[index - 1].verified) {
+    list.value.items[index].verified = true;
     if (index === list.value.items.length - 1) {
       list.value.completed = true;
     }
@@ -74,7 +74,7 @@ function check(index: number) {
         <dd
           class="p-4 font-bold uppercase"
           :class="[
-            item.checked
+            item.verified
               ? 'border-b border-success text-success'
               : 'border-b border-secondary text-black',
           ]"
@@ -84,7 +84,7 @@ function check(index: number) {
         <dt
           class="p-4 font-bold uppercase"
           :class="[
-            item.checked
+            item.verified
               ? 'border-b border-white bg-success text-white'
               : 'border-b border-secondary bg-secondary-accent',
           ]"
