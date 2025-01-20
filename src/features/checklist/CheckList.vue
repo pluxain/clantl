@@ -60,8 +60,8 @@ function check(index: number) {
   <section class="border-b-1 border-2 border-secondary">
     <div class="border-b-2 border-secondary bg-warning p-4 text-white">
       <h2 class="text-center text-4xl uppercase">{{ list.realm }}</h2>
-      <h3 class="text-center text-4xl font-bold uppercase">
-        {{ "<" }} {{ list.step }} {{ ">" }}
+      <h3 class="step text-center text-4xl font-bold uppercase">
+        {{ list.step }}
       </h3>
     </div>
     <dl class="text-2xl">
@@ -109,3 +109,13 @@ function check(index: number) {
     <p class="text-4xl font-bold motion-safe:animate-bounce">{{ "\u2304" }}</p>
   </ClantlNotification>
 </template>
+
+<style lang="postcss">
+.step::before {
+  content: "< ";
+}
+
+.step::after {
+  content: " >";
+}
+</style>
