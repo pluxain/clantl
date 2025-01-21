@@ -72,14 +72,17 @@ function check(index: number) {
         @click="check(index)"
       >
         <dd
-          class="p-4 font-bold uppercase"
+          class="grid grid-cols-[auto_1fr] gap-4 p-4 font-bold uppercase"
           :class="[
             item.verified
               ? 'border-b border-success text-success'
               : 'border-b border-secondary text-black',
           ]"
         >
-          {{ item.label }}
+          <div class="flex items-center">{{ item.label }}</div>
+          <div class="overflow-hidden">
+            {{ "&nbsp;\u2218&nbsp;".repeat(100) }}
+          </div>
         </dd>
         <dt
           class="p-4 font-bold uppercase"
