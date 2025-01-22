@@ -57,22 +57,24 @@ function check(index: number) {
 </script>
 
 <template>
-  <section class="border-b-1 border-2 border-secondary">
-    <div class="border-b-2 border-secondary bg-warning p-4 text-white">
-      <h2 class="text-center text-4xl uppercase">{{ list.realm }}</h2>
+  <section class="checklist border-b-1 border-2 border-secondary">
+    <div class="header border-b-2 border-secondary bg-warning p-4 text-white">
+      <h2 class="realm realm text-center text-4xl uppercase">
+        {{ list.realm }}
+      </h2>
       <h3 class="step text-center text-4xl font-bold uppercase">
         {{ list.step }}
       </h3>
     </div>
-    <dl class="text-2xl">
+    <dl class="items text-2xl">
       <div
         v-for="(item, index) in list.items"
         :key="index"
-        class="grid cursor-pointer grid-cols-[minmax(1px,_1fr),_25%]"
+        class="item grid cursor-pointer grid-cols-[minmax(1px,_1fr),_25%]"
         @click="check(index)"
       >
         <dd
-          class="grid grid-cols-[auto_1fr] gap-4 p-4 font-bold uppercase"
+          class="label grid grid-cols-[auto_1fr] gap-4 p-4 font-bold uppercase"
           :class="[
             item.verified
               ? 'border-b border-success text-success'
@@ -85,7 +87,7 @@ function check(index: number) {
           </div>
         </dd>
         <dt
-          class="p-4 font-bold uppercase"
+          class="keyword p-4 font-bold uppercase"
           :class="[
             item.verified
               ? 'border-b border-white bg-success text-white'
@@ -96,7 +98,7 @@ function check(index: number) {
         </dt>
       </div>
     </dl>
-    <div class="text-center text-lg">
+    <div class="copyright text-center text-lg">
       &copy; Paul Coppens &amp; Fabrice Levoyer
     </div>
   </section>
