@@ -2,7 +2,7 @@
 import { CheckList } from "@features/checklist";
 </script>
 <template>
-  <main class="flex w-full flex-col p-4">
+  <main class="grid h-screen w-screen">
     <CheckList />
   </main>
 </template>
