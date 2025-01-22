@@ -1,12 +1,13 @@
 <script setup lang="ts">
 import { ref } from "vue";
 import type { Ref } from "vue";
-import { ClantlNotification } from "@components";
+import { ClantlButton, ClantlNotification } from "@components";
 
 type Checklist = {
   completed: boolean;
   items: KillerItem[];
   realm: string;
+  resetCount: number;
   step: string;
 };
 
@@ -41,6 +42,7 @@ const list: Ref<Checklist> = ref({
     },
   ],
   realm: "Anesthésie",
+  resetCount: 0,
   step: "Avant Induction",
 });
 
@@ -54,10 +56,25 @@ function check(index: number) {
     }
   }
 }
+
+function listReset() {
+  list.value.resetCount++;
+  list.value.completed = false;
+  list.value.items.forEach((item) => (item.verified = false));
+}
 </script>
 
 <template>
-  <section class="checklist border-b-1 border-2 border-secondary">
+  <section class="checklist border-b-1 relative border-2 border-secondary">
+    <ClantlButton
+      class="absolute right-0 top-0 mr-2 mt-2 text-2xl"
+      severity="primary"
+      title="Réinitialiser la liste de vérification"
+      type="button"
+      @click="listReset"
+    >
+      {{ "\u21BB" }}
+    </ClantlButton>
     <div class="header border-b-2 border-secondary bg-warning p-4 text-white">
       <h2 class="realm realm text-center text-4xl uppercase">
         {{ list.realm }}
