@@ -3,7 +3,6 @@ import type { Severity } from "@types";
 
 type Props = {
   severity: Severity;
-  css?: string;
   title?: string;
 };
 
@@ -30,7 +29,6 @@ defineProps<Props>();
           severity === 'warning',
       },
       severity,
-      css,
     ]"
   >
     <slot />

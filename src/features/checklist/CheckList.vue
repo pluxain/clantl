@@ -122,7 +122,7 @@ function listReset() {
   <ClantlNotification
     v-if="list.completed"
     severity="success"
-    css="p-8 text-center"
+    class="p-8 text-center"
   >
     <h4 class="mb-4 text-3xl font-bold uppercase">
       liste de vérification complétée !
