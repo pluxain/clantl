@@ -5,3 +5,5 @@ export type Severity =
   | "secondary"
   | "success"
   | "warning";
+
+export type Step = "Avant Induction" | "Induction";

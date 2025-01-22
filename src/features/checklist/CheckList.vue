@@ -2,13 +2,15 @@
 import { ref } from "vue";
 import type { Ref } from "vue";
 import { ClantlButton, ClantlNotification } from "@components";
+import type { Step } from "@types";
 
 type Checklist = {
   completed: boolean;
   items: KillerItem[];
+  nextStep: Step;
   realm: string;
   resetCount: number;
-  step: string;
+  step: Step;
 };
 
 type KillerItem = {
@@ -41,6 +43,7 @@ const list: Ref<Checklist> = ref({
       verified: false,
     },
   ],
+  nextStep: "Induction",
   realm: "Anesthésie",
   resetCount: 0,
   step: "Avant Induction",
@@ -126,9 +129,12 @@ function listReset() {
       class="z-10 flex flex-col items-center justify-center opacity-95"
     >
       <h4 class="mb-4 text-3xl font-bold uppercase">
-        liste de vérification complétée !
+        liste de vérification
+        <span class="step">{{ list.step }}</span> complétée !
       </h4>
-      <p class="text-3xl font-bold uppercase">prêt pour l'induction</p>
+      <p class="text-3xl font-bold uppercase">
+        prêt pour <span class="step">{{ list.nextStep }}</span>
+      </p>
       <p class="text-4xl font-bold motion-safe:animate-bounce">
         {{ "\u2304" }}
       </p>
