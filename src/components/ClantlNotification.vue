@@ -11,7 +11,7 @@ defineProps<Props>();
 
 <template>
   <div
-    class="notification my-2 border-l-4 p-2 text-left"
+    class="notification border-l-4 p-2 text-left"
     :class="[
       {
         'border-danger-accent bg-danger-solid text-danger':
