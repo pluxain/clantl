@@ -1,1 +1,7 @@
-export type Severity = "danger" | "info" | "success" | "warning";
+export type Severity =
+  | "danger"
+  | "info"
+  | "primary"
+  | "secondary"
+  | "success"
+  | "warning";
