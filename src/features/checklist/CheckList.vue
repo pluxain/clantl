@@ -65,7 +65,7 @@ function listReset() {
 </script>
 
 <template>
-  <section class="checklist border-b-1 relative border-2 border-secondary">
+  <section class="checklist relative">
     <ClantlButton
       class="absolute right-0 top-0 mr-2 mt-2 text-2xl"
       severity="primary"
@@ -75,7 +75,7 @@ function listReset() {
     >
       {{ "\u21BB" }}
     </ClantlButton>
-    <div class="header border-b-2 border-secondary bg-warning p-4 text-white">
+    <div class="header bg-warning p-4 text-white">
       <h2 class="realm realm text-center text-4xl uppercase">
         {{ list.realm }}
       </h2>
@@ -115,7 +115,7 @@ function listReset() {
         </dt>
       </div>
     </dl>
-    <div class="copyright text-center text-lg">
+    <div class="copyright mt-4 text-center text-lg">
       &copy; Paul Coppens &amp; Fabrice Levoyer
     </div>
   </section>
