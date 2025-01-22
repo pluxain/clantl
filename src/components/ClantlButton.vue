@@ -3,14 +3,17 @@ import type { Severity } from "@types";
 
 type Props = {
   severity: Severity;
+  title?: string;
 };
 
 defineProps<Props>();
 </script>
 
 <template>
-  <div
-    class="notification border-l-4 p-2 text-left"
+  <button
+    type="button"
+    class="button rounded-md border px-1"
+    :title="title"
     :class="[
       {
         'border-danger-accent bg-danger-solid text-danger':
@@ -29,5 +32,5 @@ defineProps<Props>();
     ]"
   >
     <slot />
-  </div>
+  </button>
 </template>
