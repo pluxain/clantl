@@ -49,11 +49,15 @@ const list: Ref<Checklist> = ref({
   step: "Avant Induction",
 });
 
+const current = ref(0);
+
 function check(index: number) {
   if (index === 0) {
     list.value.items[index].verified = true;
+    current.value = 1;
   } else if (list.value.items[index - 1].verified) {
     list.value.items[index].verified = true;
+    current.value = index + 1;
     if (index === list.value.items.length - 1) {
       list.value.completed = true;
     }
@@ -64,6 +68,7 @@ function listReset() {
   list.value.resetCount++;
   list.value.completed = false;
   list.value.items.forEach((item) => (item.verified = false));
+  current.value = 0;
 }
 </script>
 
@@ -91,7 +96,14 @@ function listReset() {
         <div
           v-for="(item, index) in list.items"
           :key="index"
-          class="item grid cursor-pointer grid-cols-[minmax(1px,_1fr),_25%]"
+          class="item grid grid-cols-[minmax(1px,_1fr),_25%]"
+          :class="[
+            {
+              'cursor-pointer border-4 border-secondary': index === current,
+              'cursor-not-allowed opacity-50':
+                !item.verified && index !== current,
+            },
+          ]"
           @click="check(index)"
         >
           <dd
