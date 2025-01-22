@@ -1,11 +1,10 @@
 <script setup lang="ts">
-import { ref } from "vue";
+import { computed, ref } from "vue";
 import type { Ref } from "vue";
 import { ClantlButton, ClantlNotification } from "@components";
 import type { Step } from "@types";
 
 type Checklist = {
-  completed: boolean;
   items: KillerItem[];
   nextStep: Step;
   realm: string;
@@ -20,7 +19,6 @@ type KillerItem = {
 };
 
 const list: Ref<Checklist> = ref({
-  completed: false,
   items: [
     { label: "matériel d'intubation", keyword: "vérifié", verified: false },
     { label: "oxygène", keyword: "disponible", verified: false },
@@ -49,26 +47,26 @@ const list: Ref<Checklist> = ref({
   step: "Avant Induction",
 });
 
-const current = ref(0);
+const current = computed(
+  // @ts-expect-error findLastIndex is recent
+  () => list.value.items.findLastIndex(({ verified }) => verified) + 1,
+);
+
+const completed = computed(() =>
+  list.value.items.every((item) => item.verified),
+);
 
 function check(index: number) {
   if (index === 0) {
     list.value.items[index].verified = true;
-    current.value = 1;
   } else if (list.value.items[index - 1].verified) {
     list.value.items[index].verified = true;
-    current.value = index + 1;
-    if (index === list.value.items.length - 1) {
-      list.value.completed = true;
-    }
   }
 }
 
 function listReset() {
   list.value.resetCount++;
-  list.value.completed = false;
   list.value.items.forEach((item) => (item.verified = false));
-  current.value = 0;
 }
 </script>
 
@@ -136,7 +134,7 @@ function listReset() {
       </div>
     </div>
     <ClantlNotification
-      v-if="list.completed"
+      v-if="completed"
       severity="success"
       class="z-10 flex flex-col items-center justify-center opacity-95"
     >
