@@ -57,6 +57,10 @@ const completed = computed(() =>
 );
 
 function check(index: number) {
+  if (list.value.items[index].verified) {
+    return false;
+  }
+
   if (index === 0) {
     list.value.items[index].verified = true;
   } else if (list.value.items[index - 1].verified) {
