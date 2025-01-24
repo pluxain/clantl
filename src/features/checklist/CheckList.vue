@@ -78,7 +78,7 @@ function listReset() {
   <section class="wrapper">
     <div class="checklist relative">
       <ClantlButton
-        class="absolute right-0 top-0 mr-2 mt-2 text-2xl"
+        class="absolute top-0 right-0 mt-2 mr-2 text-2xl"
         severity="primary"
         title="Réinitialiser la liste de vérification"
         type="button"
@@ -98,10 +98,10 @@ function listReset() {
         <div
           v-for="(item, index) in list.items"
           :key="index"
-          class="item grid grid-cols-[minmax(1px,_1fr),_25%]"
+          class="item grid grid-cols-[minmax(1px,1fr)__25%]"
           :class="[
             {
-              'cursor-pointer border-4 border-secondary': index === current,
+              'border-secondary cursor-pointer border-4': index === current,
               'cursor-not-allowed opacity-50':
                 !item.verified && index !== current,
             },
@@ -112,8 +112,8 @@ function listReset() {
             class="label grid grid-cols-[auto_1fr] gap-4 p-4 font-bold uppercase"
             :class="[
               item.verified
-                ? 'border-b border-success text-success'
-                : 'border-b border-secondary text-black',
+                ? 'border-success text-success border-b'
+                : 'border-secondary border-b text-black',
             ]"
           >
             <div class="flex items-center">{{ item.label }}</div>
@@ -125,8 +125,8 @@ function listReset() {
             class="keyword p-4 font-bold uppercase"
             :class="[
               item.verified
-                ? 'border-b border-white bg-success text-white'
-                : 'border-b border-secondary bg-secondary-accent',
+                ? 'bg-success border-b border-white text-white'
+                : 'border-secondary bg-secondary-accent border-b',
             ]"
           >
             {{ item.keyword }}
@@ -156,7 +156,7 @@ function listReset() {
   </section>
 </template>
 
-<style lang="postcss">
+<style>
 .wrapper {
   display: grid;
   grid-template-areas: "main";
