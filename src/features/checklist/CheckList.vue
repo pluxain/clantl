@@ -28,6 +28,7 @@ const list: Ref<Checklist> = ref({
       verified: false,
     },
   ],
+  locale: "fr",
   nextStep: "Induction",
   realm: "Anesthésie",
   resetCount: 0,
@@ -64,15 +65,19 @@ function listReset() {
 <template>
   <section class="wrapper">
     <div class="checklist relative">
-      <ClantlButton
-        class="absolute top-0 right-0 mt-2 mr-2 text-2xl"
-        severity="primary"
-        :title="t.btn_reset_checklist_hint()"
-        type="button"
-        @click="listReset"
+      <div
+        class="absolute top-0 right-0 mt-2 mr-2 flex gap-2 text-2xl text-white"
       >
-        {{ "\u21BB" }}
-      </ClantlButton>
+        <span class="locale">{{ list.locale }}</span>
+        <ClantlButton
+          severity="primary"
+          :title="t.btn_reset_checklist_hint()"
+          type="button"
+          @click="listReset"
+        >
+          {{ "\u21BB" }}
+        </ClantlButton>
+      </div>
       <div class="header bg-warning p-4 text-white">
         <h2 class="realm realm text-center text-4xl uppercase">
           {{ list.realm }}
@@ -166,5 +171,13 @@ function listReset() {
 
 .step::after {
   content: " >";
+}
+
+.locale::before {
+  content: "[";
+}
+
+.locale::after {
+  content: "]";
 }
 </style>

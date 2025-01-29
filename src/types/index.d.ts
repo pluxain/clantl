@@ -6,8 +6,11 @@ export type Severity =
   | "success"
   | "warning";
 
+export type Locale = "en" | "fr";
+
 export type Checklist = {
   items: KillerItem[];
+  locale: Locale;
   nextStep: Step;
   realm: string;
   resetCount: number;
