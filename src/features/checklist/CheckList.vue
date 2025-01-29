@@ -3,21 +3,7 @@ import { computed, ref } from "vue";
 import type { Ref } from "vue";
 import { ClantlButton, ClantlNotification } from "@components";
 import * as t from "@locales/messages";
-import type { Step } from "@types";
-
-type Checklist = {
-  items: KillerItem[];
-  nextStep: Step;
-  realm: string;
-  resetCount: number;
-  step: Step;
-};
-
-type KillerItem = {
-  verified: boolean;
-  keyword: string;
-  label: string;
-};
+import type { Checklist } from "@types";
 
 const list: Ref<Checklist> = ref({
   items: [
