@@ -1,0 +1,6 @@
+{
+  "$schema": "https://inlang.com/schema/inlang-message-format",
+  "btn_reset_checklist_hint": "réinitialiser la liste de vérification",
+  "checklist_completed_html": "liste de vérification <span class=\"step\">{step}</span> complétée !",
+  "checklist_completed_next_html": "prêt pour <span class=\"step\">{nextStep}</span>"
+}

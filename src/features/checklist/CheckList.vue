@@ -2,21 +2,8 @@
 import { computed, ref } from "vue";
 import type { Ref } from "vue";
 import { ClantlButton, ClantlNotification } from "@components";
-import type { Step } from "@types";
-
-type Checklist = {
-  items: KillerItem[];
-  nextStep: Step;
-  realm: string;
-  resetCount: number;
-  step: Step;
-};
-
-type KillerItem = {
-  verified: boolean;
-  keyword: string;
-  label: string;
-};
+import * as t from "@locales/messages";
+import type { Checklist } from "@types";
 
 const list: Ref<Checklist> = ref({
   items: [
@@ -41,6 +28,7 @@ const list: Ref<Checklist> = ref({
       verified: false,
     },
   ],
+  locale: "fr",
   nextStep: "Induction",
   realm: "Anesthésie",
   resetCount: 0,
@@ -77,15 +65,19 @@ function listReset() {
 <template>
   <section class="wrapper">
     <div class="checklist relative">
-      <ClantlButton
-        class="absolute top-0 right-0 mt-2 mr-2 text-2xl"
-        severity="primary"
-        title="Réinitialiser la liste de vérification"
-        type="button"
-        @click="listReset"
+      <div
+        class="absolute top-0 right-0 mt-2 mr-2 flex gap-2 text-2xl text-white"
       >
-        {{ "\u21BB" }}
-      </ClantlButton>
+        <span class="locale">{{ list.locale }}</span>
+        <ClantlButton
+          severity="primary"
+          :title="t.btn_reset_checklist_hint()"
+          type="button"
+          @click="listReset"
+        >
+          {{ "\u21BB" }}
+        </ClantlButton>
+      </div>
       <div class="header bg-warning p-4 text-white">
         <h2 class="realm realm text-center text-4xl uppercase">
           {{ list.realm }}
@@ -142,13 +134,16 @@ function listReset() {
       severity="success"
       class="z-10 flex flex-col items-center justify-center opacity-95"
     >
-      <h4 class="mb-4 text-3xl font-bold uppercase">
-        liste de vérification
-        <span class="step">{{ list.step }}</span> complétée !
-      </h4>
-      <p class="text-3xl font-bold uppercase">
-        prêt pour <span class="step">{{ list.nextStep }}</span>
-      </p>
+      <!-- eslint-disable vue/no-v-html -->
+      <h4
+        class="mb-4 text-3xl font-bold uppercase"
+        v-html="t.checklist_completed_html({ step: list.step })"
+      ></h4>
+      <p
+        class="text-3xl font-bold uppercase"
+        v-html="t.checklist_completed_next_html({ nextStep: list.nextStep })"
+      ></p>
+      <!-- eslint-enable vue/no-v-html -->
       <p class="text-4xl font-bold motion-safe:animate-bounce">
         {{ "\u2304" }}
       </p>
@@ -176,5 +171,13 @@ function listReset() {
 
 .step::after {
   content: " >";
+}
+
+.locale::before {
+  content: "[";
+}
+
+.locale::after {
+  content: "]";
 }
 </style>
