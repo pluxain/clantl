@@ -2,6 +2,7 @@
 import { computed, ref } from "vue";
 import type { Ref } from "vue";
 import { ClantlButton, ClantlNotification } from "@components";
+import * as t from "@locales/messages";
 import type { Step } from "@types";
 
 type Checklist = {
@@ -80,7 +81,7 @@ function listReset() {
       <ClantlButton
         class="absolute top-0 right-0 mt-2 mr-2 text-2xl"
         severity="primary"
-        title="Réinitialiser la liste de vérification"
+        :title="t.btn_reset_checklist_hint()"
         type="button"
         @click="listReset"
       >
@@ -142,13 +143,16 @@ function listReset() {
       severity="success"
       class="z-10 flex flex-col items-center justify-center opacity-95"
     >
-      <h4 class="mb-4 text-3xl font-bold uppercase">
-        liste de vérification
-        <span class="step">{{ list.step }}</span> complétée !
-      </h4>
-      <p class="text-3xl font-bold uppercase">
-        prêt pour <span class="step">{{ list.nextStep }}</span>
-      </p>
+      <!-- eslint-disable vue/no-v-html -->
+      <h4
+        class="mb-4 text-3xl font-bold uppercase"
+        v-html="t.checklist_completed_html({ step: list.step })"
+      ></h4>
+      <p
+        class="text-3xl font-bold uppercase"
+        v-html="t.checklist_completed_next_html({ nextStep: list.nextStep })"
+      ></p>
+      <!-- eslint-enable vue/no-v-html -->
       <p class="text-4xl font-bold motion-safe:animate-bounce">
         {{ "\u2304" }}
       </p>
