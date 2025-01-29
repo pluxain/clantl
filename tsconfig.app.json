@@ -9,12 +9,16 @@
     "noUnusedParameters": true,
     "noFallthroughCasesInSwitch": true,
     "noUncheckedSideEffectImports": true,
+    "allowJs": true,
+    "checkJs": true,
     "baseUrl": ".",
     "paths": {
       "@components": ["src/components/"],
       "@components/*": ["src/components/*"],
       "@features": ["src/features/"],
       "@features/*": ["src/features/*"],
+      "@locales": ["src/paraglide/"],
+      "@locales/*": ["src/paraglide/*"],
       "@types": ["src/types/"],
       "@types/*": ["src/types/*"]
     }
