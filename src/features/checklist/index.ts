@@ -1,3 +1,3 @@
-import CheckList from "./CheckList.vue";
+import CheckListView from "./CheckListView.vue";
 
-export default CheckList;
+export default CheckListView;
