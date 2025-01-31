@@ -3,7 +3,10 @@ import { computed, ref } from "vue";
 import type { Ref } from "vue";
 import { ClantlButton, ClantlNotification } from "@components";
 import * as t from "@locales/messages";
+import { languageTag } from "@locales/runtime";
 import type { Checklist } from "@types";
+
+const uiLocale = languageTag();
 
 const list: Ref<Checklist> = ref({
   items: [
@@ -68,6 +71,7 @@ function listReset() {
       <div
         class="absolute top-0 right-0 mt-2 mr-2 flex gap-2 text-2xl text-white"
       >
+        <span class="locale">{{ uiLocale }}</span>
         <span class="locale">{{ list.locale }}</span>
         <ClantlButton
           severity="primary"
