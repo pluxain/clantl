@@ -1,0 +1,8 @@
+{
+  "$schema": "https://inlang.com/schema/inlang-message-format",
+  "btn_reset_checklist_hint": "reset the checklist",
+  "checklist_completed_html": "Checklist <span class=\"step\">{step}</span> completed !",
+  "checklist_completed_next_html": "ready for <span class=\"step\">{nextStep}</span>",
+  "checklist_link": "access the checklist",
+  "clantl_moto": "Check Lists are not Todo Lists"
+}
