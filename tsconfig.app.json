@@ -17,6 +17,8 @@
       "@components/*": ["src/components/*"],
       "@features": ["src/features/"],
       "@features/*": ["src/features/*"],
+      "@layouts": ["src/layouts/"],
+      "@layouts/*": ["src/layouts/*"],
       "@locales": ["src/paraglide/"],
       "@locales/*": ["src/paraglide/*"],
       "@types": ["src/types/"],
