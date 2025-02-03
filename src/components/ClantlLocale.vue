@@ -3,13 +3,14 @@ import type { Locale } from "@types";
 
 type Props = {
   locale: Locale;
+  hint?: string;
 };
 
 defineProps<Props>();
 </script>
 
 <template>
-  <span class="locale">{{ locale }}</span>
+  <span class="locale" :title="hint">{{ locale }}</span>
 </template>
 
 <style scoped>

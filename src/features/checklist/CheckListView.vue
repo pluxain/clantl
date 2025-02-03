@@ -71,11 +71,11 @@ function listReset() {
       <div
         class="absolute top-0 right-0 mt-2 mr-2 flex gap-2 text-2xl text-white"
       >
-        <ClantlLocale :locale="uiLocale" />
-        <ClantlLocale :locale="list.locale" />
+        <ClantlLocale :locale="uiLocale" :hint="t.ui_locale_hint()" />
+        <ClantlLocale :locale="list.locale" :hint="t.checklist_locale_hint()" />
         <ClantlButton
           severity="primary"
-          :title="t.btn_reset_checklist_hint()"
+          :hint="t.btn_reset_checklist_hint()"
           type="button"
           @click="listReset"
         >
