@@ -1,8 +1,8 @@
 {
   "$schema": "https://inlang.com/schema/inlang-message-format",
   "btn_reset_checklist_hint": "réinitialiser la liste de vérification",
-  "checklist_completed_html": "liste de vérification <span class=\"step\">{step}</span> complétée !",
-  "checklist_completed_next_html": "prêt pour <span class=\"step\">{nextStep}</span>",
+  "checklist_completed": "liste de vérification complétée !",
+  "checklist_completed_next": "prêt pour",
   "checklist_link": "accéder à la liste de vérification",
   "checklist_locale_hint": "Locale de la liste de vérification",
   "clantl_moto": "Une liste de vérification n'est pas une liste de courses",

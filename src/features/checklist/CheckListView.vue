@@ -138,16 +138,13 @@ function listReset() {
       severity="success"
       class="z-10 flex flex-col items-center justify-center opacity-95"
     >
-      <!-- eslint-disable vue/no-v-html -->
-      <h4
-        class="mb-4 text-3xl font-bold uppercase"
-        v-html="t.checklist_completed_html({ step: list.step })"
-      ></h4>
-      <p
-        class="text-3xl font-bold uppercase"
-        v-html="t.checklist_completed_next_html({ nextStep: list.nextStep })"
-      ></p>
-      <!-- eslint-enable vue/no-v-html -->
+      <h4 class="mb-4 text-3xl font-bold uppercase">
+        <span class="step">{{ list.step }}</span> {{ t.checklist_completed() }}
+      </h4>
+      <p class="text-3xl font-bold uppercase">
+        {{ t.checklist_completed_next() }}
+        <span class="step">{{ list.nextStep }}</span>
+      </p>
       <p class="text-4xl font-bold motion-safe:animate-bounce">
         {{ "\u2304" }}
       </p>
