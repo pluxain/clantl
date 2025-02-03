@@ -15,6 +15,7 @@ const routes = [
       { path: "checklist", name: "checklist", component: CheckListView },
     ],
   },
+  { path: "/:unknown(.+)", name: "404", redirect: "/" },
 ] as const;
 
 export { routes };
