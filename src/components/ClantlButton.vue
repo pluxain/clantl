@@ -3,7 +3,7 @@ import type { Severity } from "@types";
 
 type Props = {
   severity: Severity;
-  title?: string;
+  hint?: string;
 };
 
 defineProps<Props>();
@@ -13,7 +13,7 @@ defineProps<Props>();
   <button
     type="button"
     class="button rounded-md border px-1"
-    :title="title"
+    :title="hint"
     :class="[
       {
         'border-danger-accent bg-danger-solid text-danger':

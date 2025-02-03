@@ -1,8 +1,9 @@
 <script setup lang="ts">
-import { CheckList } from "@features/checklist";
+import { RouterView } from "vue-router";
 </script>
+
 <template>
   <main class="grid h-screen w-screen">
-    <CheckList />
+    <RouterView />
   </main>
 </template>

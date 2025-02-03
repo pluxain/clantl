@@ -1,9 +1,12 @@
 <script setup lang="ts">
 import { computed, ref } from "vue";
 import type { Ref } from "vue";
-import { ClantlButton, ClantlNotification } from "@components";
+import { ClantlButton, ClantlLocale, ClantlNotification } from "@components";
 import * as t from "@locales/messages";
+import { languageTag } from "@locales/runtime";
 import type { Checklist } from "@types";
+
+const uiLocale = languageTag();
 
 const list: Ref<Checklist> = ref({
   items: [
@@ -66,12 +69,20 @@ function listReset() {
   <section class="wrapper">
     <div class="checklist relative">
       <div
+        class="absolute top-0 left-0 mt-2 ml-2 flex gap-2 text-2xl text-white"
+      >
+        <RouterLink :to="{ name: 'home' }">
+          {{ "\u27ea" }}
+        </RouterLink>
+      </div>
+      <div
         class="absolute top-0 right-0 mt-2 mr-2 flex gap-2 text-2xl text-white"
       >
-        <span class="locale">{{ list.locale }}</span>
+        <ClantlLocale :locale="uiLocale" :hint="t.ui_locale_hint()" />
+        <ClantlLocale :locale="list.locale" :hint="t.checklist_locale_hint()" />
         <ClantlButton
           severity="primary"
-          :title="t.btn_reset_checklist_hint()"
+          :hint="t.btn_reset_checklist_hint()"
           type="button"
           @click="listReset"
         >
@@ -134,16 +145,13 @@ function listReset() {
       severity="success"
       class="z-10 flex flex-col items-center justify-center opacity-95"
     >
-      <!-- eslint-disable vue/no-v-html -->
-      <h4
-        class="mb-4 text-3xl font-bold uppercase"
-        v-html="t.checklist_completed_html({ step: list.step })"
-      ></h4>
-      <p
-        class="text-3xl font-bold uppercase"
-        v-html="t.checklist_completed_next_html({ nextStep: list.nextStep })"
-      ></p>
-      <!-- eslint-enable vue/no-v-html -->
+      <h4 class="mb-4 text-3xl font-bold uppercase">
+        <span class="step">{{ list.step }}</span> {{ t.checklist_completed() }}
+      </h4>
+      <p class="text-3xl font-bold uppercase">
+        {{ t.checklist_completed_next() }}
+        <span class="step">{{ list.nextStep }}</span>
+      </p>
       <p class="text-4xl font-bold motion-safe:animate-bounce">
         {{ "\u2304" }}
       </p>
@@ -151,7 +159,7 @@ function listReset() {
   </section>
 </template>
 
-<style>
+<style scoped>
 .wrapper {
   display: grid;
   grid-template-areas: "main";
@@ -171,13 +179,5 @@ function listReset() {
 
 .step::after {
   content: " >";
-}
-
-.locale::before {
-  content: "[";
-}
-
-.locale::after {
-  content: "]";
 }
 </style>
