@@ -69,6 +69,13 @@ function listReset() {
   <section class="wrapper">
     <div class="checklist relative">
       <div
+        class="absolute top-0 left-0 mt-2 ml-2 flex gap-2 text-2xl text-white"
+      >
+        <RouterLink :to="{ name: 'home' }">
+          {{ "\u27ea" }}
+        </RouterLink>
+      </div>
+      <div
         class="absolute top-0 right-0 mt-2 mr-2 flex gap-2 text-2xl text-white"
       >
         <ClantlLocale :locale="uiLocale" :hint="t.ui_locale_hint()" />
