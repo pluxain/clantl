@@ -13,6 +13,8 @@
     "checkJs": true,
     "baseUrl": ".",
     "paths": {
+      "@api": ["src/api/"],
+      "@api/*": ["src/api/*"],
       "@components": ["src/components/"],
       "@components/*": ["src/components/*"],
       "@features": ["src/features/"],
