@@ -12,7 +12,11 @@ const routes = [
     path: `/:locale(${localesMatch})`,
     component: BaseLayout,
     children: [
-      { path: "checklist", name: "checklist", component: CheckListView },
+      {
+        path: ":realm/:step/checklist",
+        name: "checklist",
+        component: CheckListView,
+      },
     ],
   },
   { path: "/:unknown(.+)", name: "404", redirect: "/" },

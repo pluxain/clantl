@@ -8,11 +8,20 @@ export type Severity =
 
 export type Locale = "en" | "fr";
 
+export type Realm = "anesthesie";
+
+export type Flow = {
+  realm: Realm;
+  steps: Step[];
+};
+
+export type Step = "avant-induction" | "induction";
+
 export type Checklist = {
   items: KillerItem[];
   locale: Locale;
   nextStep: Step;
-  flow: string;
+  realm: Realm;
   resetCount: number;
   step: Step;
 };
@@ -22,5 +31,3 @@ export type KillerItem = {
   keyword: string;
   label: string;
 };
-
-export type Step = "Avant Induction" | "Induction";

@@ -32,10 +32,10 @@ const list: Ref<Checklist> = ref({
     },
   ],
   locale: "fr",
-  nextStep: "Induction",
-  flow: "Anesthésie",
+  nextStep: "induction",
+  realm: "anesthesie",
   resetCount: 0,
-  step: "Avant Induction",
+  step: "avant-induction",
 });
 
 const current = computed(
@@ -91,7 +91,7 @@ function listReset() {
       </div>
       <div class="header bg-warning p-4 text-white">
         <h2 class="realm realm text-center text-4xl uppercase">
-          {{ list.flow }}
+          {{ list.realm }}
         </h2>
         <h3 class="step text-center text-4xl font-bold uppercase">
           {{ list.step }}
