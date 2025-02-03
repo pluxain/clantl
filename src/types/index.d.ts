@@ -12,7 +12,7 @@ export type Checklist = {
   items: KillerItem[];
   locale: Locale;
   nextStep: Step;
-  realm: string;
+  flow: string;
   resetCount: number;
   step: Step;
 };
