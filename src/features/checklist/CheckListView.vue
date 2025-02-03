@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { computed, ref } from "vue";
 import type { Ref } from "vue";
+import { getChecklist } from "@api";
 import { ClantlButton, ClantlLocale, ClantlNotification } from "@components";
 import * as t from "@locales/messages";
 import { languageTag } from "@locales/runtime";
@@ -8,35 +9,8 @@ import type { Checklist } from "@types";
 
 const uiLocale = languageTag();
 
-const list: Ref<Checklist> = ref({
-  items: [
-    { label: "matériel d'intubation", keyword: "vérifié", verified: false },
-    { label: "oxygène", keyword: "disponible", verified: false },
-    {
-      label: "circuit / Ballon de réanimation",
-      keyword: "testé",
-      verified: false,
-    },
-    { label: "valve d'échappement", keyword: "Ouverte", verified: false },
-    {
-      label: "ballonnet sonde endotrachéale",
-      keyword: "étanche",
-      verified: false,
-    },
-    { label: "cathéter", keyword: "fonctionnel", verified: false },
-    { label: "procédure de réanimation", keyword: "prête", verified: false },
-    {
-      label: "responsable de la surveillance",
-      keyword: "nommé",
-      verified: false,
-    },
-  ],
-  locale: "fr",
-  nextStep: "induction",
-  realm: "anesthesie",
-  resetCount: 0,
-  step: "avant-induction",
-});
+const checklist = getChecklist("anesthesie", "avant-induction");
+const list: Ref<Checklist> = ref(checklist);
 
 const current = computed(
   // @ts-expect-error findLastIndex is recent
@@ -146,7 +120,8 @@ function listReset() {
       class="z-10 flex flex-col items-center justify-center opacity-95"
     >
       <h4 class="mb-4 text-3xl font-bold uppercase">
-        <span class="step">{{ list.step }}</span> {{ t.checklist_completed() }}
+        <span class="step">{{ list.step }}</span>
+        {{ t.checklist_completed() }}
       </h4>
       <p class="text-3xl font-bold uppercase">
         {{ t.checklist_completed_next() }}
