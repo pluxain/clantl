@@ -1,9 +1,19 @@
 import type { Checklist, Realm, Step } from "@types";
 
-export function getChecklist(_realm: Realm, _step: Step): Checklist {
+export async function getChecklist(
+  _realm: Realm,
+  _step: Step,
+): Promise<Checklist> {
+  // Simulate delay
+  await new Promise((resolve) => setTimeout(resolve, 1000));
+
   return {
     items: [
-      { label: "matériel d'intubation", keyword: "vérifié", verified: false },
+      {
+        label: "matériel d'intubation",
+        keyword: "vérifié",
+        verified: false,
+      },
       { label: "oxygène", keyword: "disponible", verified: false },
       {
         label: "circuit / Ballon de réanimation",
@@ -17,7 +27,11 @@ export function getChecklist(_realm: Realm, _step: Step): Checklist {
         verified: false,
       },
       { label: "cathéter", keyword: "fonctionnel", verified: false },
-      { label: "procédure de réanimation", keyword: "prête", verified: false },
+      {
+        label: "procédure de réanimation",
+        keyword: "prête",
+        verified: false,
+      },
       {
         label: "responsable de la surveillance",
         keyword: "nommé",

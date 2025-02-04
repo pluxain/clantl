@@ -9,7 +9,7 @@ import type { Checklist } from "@types";
 
 const uiLocale = languageTag();
 
-const checklist = getChecklist("anesthesie", "avant-induction");
+const checklist = await getChecklist("anesthesie", "avant-induction");
 const list: Ref<Checklist> = ref(checklist);
 
 const current = computed(

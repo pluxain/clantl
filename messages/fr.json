@@ -6,6 +6,7 @@
   "checklist_link": "accéder à la liste de vérification",
   "checklist_locale_hint": "Locale de la liste de vérification",
   "clantl_moto": "Une liste de vérification n'est pas une liste de courses",
+  "pending_indicator_text": "chargement",
   "start_flow_link": "Commencer le flow pour {realm}",
   "ui_locale_hint": "Locale de l'interface utilisateur"
 }
