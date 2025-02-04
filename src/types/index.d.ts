@@ -10,11 +10,6 @@ export type Locale = "en" | "fr";
 
 export type Realm = "anesthesie";
 
-export type Flow = {
-  realm: Realm;
-  steps: Step[];
-};
-
 export type Step =
   | "init"
   | "preparation-et-premedication"

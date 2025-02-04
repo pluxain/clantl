@@ -2,12 +2,6 @@
 import * as t from "@locales/messages";
 import { availableLanguageTags } from "@locales/runtime";
 import { ClantlLocale } from "@components";
-import type { Flow } from "@types";
-
-const flow: Flow = {
-  realm: "anesthesie",
-  steps: ["preparation-et-premedication", "induction"],
-};
 </script>
 <template>
   <section class="mx-4 mt-8 md:mx-36">
@@ -23,11 +17,14 @@ const flow: Flow = {
           <RouterLink
             :to="{
               name: 'checklist',
-              params: { locale, realm: flow.realm, step: flow.steps[0] },
+              params: { locale, realm: 'anesthesie', step: 'init' },
             }"
             class="underline"
             >{{
-              t.start_flow_link({ realm: flow.realm }, { languageTag: locale })
+              t.start_flow_link(
+                { realm: "anesthesie" },
+                { languageTag: locale },
+              )
             }}</RouterLink
           >
         </div>
