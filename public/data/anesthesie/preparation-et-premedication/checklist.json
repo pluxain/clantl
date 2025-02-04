@@ -30,8 +30,9 @@
     }
   ],
   "locale": "fr",
+  "name": "avant induction",
   "nextStep": "induction",
   "realm": "anesthesie",
   "resetCount": 0,
-  "step": "avant-induction"
+  "step": "preparation-et-premedication"
 }

@@ -13,6 +13,7 @@ const routes = [
     component: BaseLayout,
     children: [
       {
+        // TODO: set possible values for realm and step
         path: ":realm/:step/checklist",
         name: "checklist",
         component: CheckListView,

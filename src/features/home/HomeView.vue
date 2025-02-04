@@ -6,7 +6,7 @@ import type { Flow } from "@types";
 
 const flow: Flow = {
   realm: "anesthesie",
-  steps: ["avant-induction", "induction"],
+  steps: ["preparation-et-premedication", "induction"],
 };
 </script>
 <template>

@@ -69,12 +69,15 @@ function listReset() {
         </ClantlButton>
       </div>
       <div class="header bg-warning p-4 text-white">
-        <h2 class="realm realm text-center text-4xl uppercase">
-          {{ list.realm }}
+        <h2
+          class="realm flex items-center justify-center gap-4 text-3xl uppercase"
+        >
+          <span>{{ list.realm }}</span>
+          <span>{{ list.step }}</span>
         </h2>
-        <h3 class="step text-center text-4xl font-bold uppercase">
-          {{ list.step }}
-        </h3>
+        <h4 class="name text-center text-4xl font-bold uppercase">
+          {{ list.name }}
+        </h4>
       </div>
       <dl class="items text-2xl">
         <div
@@ -122,10 +125,13 @@ function listReset() {
     <ClantlNotification
       v-if="completed"
       severity="success"
-      class="z-10 flex flex-col items-center justify-center opacity-95"
+      class="z-10 flex flex-col items-center justify-center gap-4 opacity-95"
     >
-      <h4 class="mb-4 text-3xl font-bold uppercase">
+      <h4 class="text-3xl font-bold uppercase">
         <span class="step">{{ list.step }}</span>
+      </h4>
+      <h4 class="text-3xl font-bold uppercase">
+        <span class="name">{{ list.name }}</span>
         {{ t.checklist_completed() }}
       </h4>
       <p class="text-3xl font-bold uppercase">
@@ -153,11 +159,11 @@ function listReset() {
   grid-area: main;
 }
 
-.step::before {
+.name::before {
   content: "< ";
 }
 
-.step::after {
+.name::after {
   content: " >";
 }
 </style>

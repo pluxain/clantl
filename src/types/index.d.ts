@@ -15,11 +15,23 @@ export type Flow = {
   steps: Step[];
 };
 
-export type Step = "avant-induction" | "induction";
+export type Step =
+  | "init"
+  | "preparation-et-premedication"
+  | "induction"
+  | "chirurgie"
+  | "reveil";
+
+export type ChecklistName =
+  | "avant prémédication"
+  | "avant induction"
+  | "avant chirurgie"
+  | "avant réveil";
 
 export type Checklist = {
   items: KillerItem[];
   locale: Locale;
+  name: ChecklistName;
   nextStep: Step;
   realm: Realm;
   resetCount: number;
