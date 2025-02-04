@@ -1,0 +1,25 @@
+{
+  "items": [
+    {
+      "label": "plan thérapeutique post-intervention",
+      "keyword": "défini",
+      "verified": false
+    },
+    {
+      "label": "plan analgésique",
+      "keyword": "en place",
+      "verified": false
+    },
+    {
+      "label": "surveillance post-anesthésique",
+      "keyword": "définie",
+      "verified": false
+    }
+  ],
+  "locale": "fr",
+  "name": "avant réveil",
+  "nextStep": "reveil",
+  "realm": "anesthesie",
+  "resetCount": 0,
+  "step": "chirurgie"
+}

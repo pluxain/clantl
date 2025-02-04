@@ -1,0 +1,35 @@
+{
+  "items": [
+    {
+      "label": "patient",
+      "keyword": "nommé",
+      "verified": false
+    },
+    {
+      "label": "nature de l'intervention",
+      "keyword": "nommée",
+      "verified": false
+    },
+    {
+      "label": "zone de l'intervention",
+      "keyword": "définie",
+      "verified": false
+    },
+    {
+      "label": "examen préanesthésique",
+      "keyword": "effectué",
+      "verified": false
+    },
+    {
+      "label": "consentement du propriétaire",
+      "keyword": "signé",
+      "verified": false
+    }
+  ],
+  "locale": "fr",
+  "name": "avant prémédication",
+  "nextStep": "preparation-et-premedication",
+  "realm": "anesthesie",
+  "resetCount": 0,
+  "step": "init"
+}
