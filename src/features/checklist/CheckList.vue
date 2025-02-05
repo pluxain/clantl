@@ -1,18 +1,16 @@
 <script setup lang="ts">
 import { computed, ref } from "vue";
 import type { Ref } from "vue";
+import { useRoute } from "vue-router";
+import { getChecklist } from "@api";
 import { ClantlButton, ClantlLocale, ClantlNotification } from "@components";
 import * as t from "@locales/messages";
-import type { Checklist, Locale, Realm, Step } from "@types";
-import { getChecklist } from "@api";
+import { setLanguageTag } from "@locales/runtime";
+import type { Checklist } from "@types";
 
-type Props = {
-  realm: Realm;
-  step: Step;
-  locale: Locale;
-};
-
-const { realm, step, locale } = defineProps<Props>();
+const { params } = useRoute("checklist");
+const { locale, realm, step } = params;
+setLanguageTag(locale);
 const checklist = await getChecklist(realm, step);
 
 const list: Ref<Checklist> = ref(checklist);
