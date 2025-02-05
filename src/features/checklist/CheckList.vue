@@ -134,13 +134,21 @@ function listReset() {
         <span class="name">{{ list.name }}</span>
         {{ t.checklist_completed() }}
       </h4>
-      <p class="text-3xl font-bold uppercase">
-        {{ t.checklist_completed_next() }}
-        <span class="step">{{ list.nextStep }}</span>
-      </p>
-      <p class="text-4xl font-bold motion-safe:animate-bounce">
-        {{ "\u2304" }}
-      </p>
+      <RouterLink
+        class="flex flex-col items-center"
+        :to="{
+          name: 'checklist',
+          params: { locale, realm, step: list.nextStep },
+        }"
+      >
+        <p class="text-3xl font-bold uppercase">
+          {{ t.checklist_completed_next() }}
+          <span class="step">{{ list.nextStep }}</span>
+        </p>
+        <p class="text-4xl font-bold motion-safe:animate-bounce">
+          {{ "\u2304" }}
+        </p>
+      </RouterLink>
     </ClantlNotification>
   </section>
 </template>
