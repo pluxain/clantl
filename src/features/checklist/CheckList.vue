@@ -9,10 +9,10 @@ import { getChecklist } from "@api";
 type Props = {
   realm: Realm;
   step: Step;
-  uiLocale: Locale;
+  locale: Locale;
 };
 
-const { realm, step, uiLocale } = defineProps<Props>();
+const { realm, step, locale } = defineProps<Props>();
 const checklist = await getChecklist(realm, step);
 
 const list: Ref<Checklist> = ref(checklist);
@@ -57,7 +57,7 @@ function listReset() {
       <div
         class="absolute top-0 right-0 mt-2 mr-2 flex gap-2 text-2xl text-white"
       >
-        <ClantlLocale :locale="uiLocale" :hint="t.ui_locale_hint()" />
+        <ClantlLocale :locale="locale" :hint="t.ui_locale_hint()" />
         <ClantlLocale :locale="list.locale" :hint="t.checklist_locale_hint()" />
         <ClantlButton
           severity="primary"
