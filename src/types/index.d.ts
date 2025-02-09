@@ -1,3 +1,5 @@
+export type Url = string;
+
 export type Severity =
   | "danger"
   | "info"
