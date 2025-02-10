@@ -1,7 +1,7 @@
 export const realms = ["anesthesie"] as const;
 
 export const steps = [
-  "init",
+  "start",
   "preparation-et-premedication",
   "induction",
   "chirurgie",

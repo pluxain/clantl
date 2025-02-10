@@ -31,5 +31,5 @@
   "nextStep": "preparation-et-premedication",
   "realm": "anesthesie",
   "resetCount": 0,
-  "step": "init"
+  "step": "start"
 }
