@@ -123,7 +123,7 @@ function listReset() {
     <ClantlNotification
       v-if="completed"
       severity="success"
-      class="z-10 flex flex-col items-center justify-center gap-4 opacity-95"
+      class="flex flex-col items-center justify-center gap-4 opacity-95"
     >
       <h4 class="text-3xl font-bold uppercase">
         <span class="step">{{ list.step }}</span>
@@ -133,17 +133,17 @@ function listReset() {
         {{ t.checklist_completed() }}
       </h4>
       <RouterLink
-        class="flex flex-col items-center"
+        class="bg-success text-success-solid flex min-w-1/2 flex-col items-center rounded-xl border-2 p-8 text-4xl font-bold"
         :to="{
           name: 'checklist',
           params: { locale, realm, step: list.nextStep },
         }"
       >
-        <p class="text-3xl font-bold uppercase">
+        <p class="uppercase">
           {{ t.checklist_completed_next() }}
           <span class="step">{{ list.nextStep }}</span>
         </p>
-        <p class="text-4xl font-bold motion-safe:animate-bounce">
+        <p class="motion-safe:animate-bounce">
           {{ "\u2304" }}
         </p>
       </RouterLink>
