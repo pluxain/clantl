@@ -17,7 +17,7 @@ export interface ClantlRouteNamedMap {
   >;
   checklist: RouteRecordInfo<
     "checklist",
-    "/:locale/:realm/:step/checklist",
+    "/:locale/flows/:realm/:step/checklist",
     { locale: "en" | "fr"; realm: Realm; step: Step },
     { locale: "en" | "fr"; realm: Realm; step: Step }
   >;
