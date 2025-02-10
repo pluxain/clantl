@@ -17,7 +17,7 @@ import { ClantlLocale } from "@components";
           <RouterLink
             :to="{
               name: 'checklist',
-              params: { locale, realm: 'anesthesie', step: 'init' },
+              params: { locale, realm: 'anesthesie', step: 'start' },
             }"
             class="underline"
             >{{

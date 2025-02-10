@@ -66,15 +66,13 @@ function listReset() {
           {{ "\u21BB" }}
         </ClantlButton>
       </div>
-      <div class="header bg-warning p-4 text-white">
-        <h2
-          class="realm flex items-center justify-center gap-4 text-3xl uppercase"
-        >
-          <span>{{ list.realm }}</span>
-          <span>{{ list.step }}</span>
+      <div class="header bg-warning p-4 text-white uppercase">
+        <h2 class="flex items-center justify-center gap-4 text-3xl">
+          <span class="realm">{{ list.realm }}</span>
+          <span class="step">{{ list.step }}</span>
         </h2>
-        <h4 class="name text-center text-4xl font-bold uppercase">
-          {{ list.name }}
+        <h4 class="mt-4 text-center text-4xl font-bold">
+          <span class="name">{{ list.name }}</span>
         </h4>
       </div>
       <dl class="items text-2xl">
@@ -92,13 +90,16 @@ function listReset() {
           @click="check(index)"
         >
           <dd
-            class="label grid grid-cols-[auto_1fr] gap-4 p-4 font-bold uppercase"
+            class="label grid grid-cols-[40px_auto_1fr] gap-4 p-4 font-bold uppercase"
             :class="[
               item.verified
                 ? 'border-success text-success border-b'
                 : 'border-secondary border-b text-black',
             ]"
           >
+            <div class="flex items-center">
+              <span v-if="item.verified">{{ "\u2713" }}</span>
+            </div>
             <div class="flex items-center">{{ item.label }}</div>
             <div class="overflow-hidden">
               {{ "&nbsp;\u2218&nbsp;".repeat(100) }}
@@ -123,27 +124,27 @@ function listReset() {
     <ClantlNotification
       v-if="completed"
       severity="success"
-      class="z-10 flex flex-col items-center justify-center gap-4 opacity-95"
+      class="flex flex-col items-center justify-center gap-4 text-3xl font-bold uppercase opacity-95"
     >
-      <h4 class="text-3xl font-bold uppercase">
+      <h4>
         <span class="step">{{ list.step }}</span>
       </h4>
-      <h4 class="text-3xl font-bold uppercase">
+      <h4>
         <span class="name">{{ list.name }}</span>
         {{ t.checklist_completed() }}
       </h4>
       <RouterLink
-        class="flex flex-col items-center"
+        class="bg-success text-success-solid flex min-w-1/2 flex-col items-center rounded-xl border-2 p-8 text-4xl font-bold"
         :to="{
           name: 'checklist',
           params: { locale, realm, step: list.nextStep },
         }"
       >
-        <p class="text-3xl font-bold uppercase">
+        <p>
           {{ t.checklist_completed_next() }}
           <span class="step">{{ list.nextStep }}</span>
         </p>
-        <p class="text-4xl font-bold motion-safe:animate-bounce">
+        <p class="motion-safe:animate-bounce">
           {{ "\u2304" }}
         </p>
       </RouterLink>
@@ -163,6 +164,14 @@ function listReset() {
 
 .notification {
   grid-area: main;
+}
+
+.step::before {
+  content: "| ";
+}
+
+.step::after {
+  content: " |";
 }
 
 .name::before {
