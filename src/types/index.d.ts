@@ -1,3 +1,5 @@
+import { realms, steps } from "@constants";
+
 export type Url = string;
 
 export type Severity =
@@ -10,14 +12,9 @@ export type Severity =
 
 export type Locale = "en" | "fr";
 
-export type Realm = "anesthesie";
+export type Realm = (typeof realms)[number];
 
-export type Step =
-  | "init"
-  | "preparation-et-premedication"
-  | "induction"
-  | "chirurgie"
-  | "reveil";
+export type Step = (typeof steps)[number];
 
 export type ChecklistName =
   | "avant prémédication"

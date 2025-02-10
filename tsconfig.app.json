@@ -17,6 +17,8 @@
       "@api/*": ["src/api/*"],
       "@components": ["src/components/"],
       "@components/*": ["src/components/*"],
+      "@constants": ["src/constants/"],
+      "@constants/*": ["src/constants/*"],
       "@features": ["src/features/"],
       "@features/*": ["src/features/*"],
       "@images": ["src/assets/images/"],

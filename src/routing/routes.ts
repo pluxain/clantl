@@ -1,15 +1,17 @@
 import { availableLanguageTags } from "@locales/runtime";
+import { realms, steps } from "@constants";
 // Try to use [dynamic imports](https://router.vuejs.org/guide/advanced/lazy-loading.html#Lazy-Loading-Routes) as much as possible
 const HomeView = () => import("@features/home");
 const FlowView = () => import("@features/flow");
 
 const localesMatch = availableLanguageTags.join("|");
+const realmsMatch = realms.join("|");
+const stepsMatch = steps.join("|");
 
 const routes = [
   { path: "/", name: "home", component: HomeView },
   {
-    // TODO: set possible values for realm and step
-    path: `/:locale(${localesMatch})/flows/:realm/:step/checklist`,
+    path: `/:locale(${localesMatch})/flows/:realm(${realmsMatch})/:step(${stepsMatch})/checklist`,
     name: "checklist",
     component: FlowView,
   },
