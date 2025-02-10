@@ -1,4 +1,5 @@
 // @see https://router.vuejs.org/guide/advanced/typed-routes.html
+import type { Realm, Step } from "@types";
 import type { RouteRecordInfo } from "vue-router";
 
 // declare only named routes
@@ -16,9 +17,9 @@ export interface ClantlRouteNamedMap {
   >;
   checklist: RouteRecordInfo<
     "checklist",
-    "/:locale/checklist",
-    { locale: "en" | "fr" },
-    { locale: "en" | "fr" }
+    "/:locale/flows/:realm/:step/checklist",
+    { locale: "en" | "fr"; realm: Realm; step: Step },
+    { locale: "en" | "fr"; realm: Realm; step: Step }
   >;
 }
 

@@ -15,10 +15,16 @@ import { ClantlLocale } from "@components";
         </h2>
         <div>
           <RouterLink
-            :to="{ name: 'checklist', params: { locale } }"
+            :to="{
+              name: 'checklist',
+              params: { locale, realm: 'anesthesie', step: 'init' },
+            }"
             class="underline"
             >{{
-              t.checklist_link(undefined, { languageTag: locale })
+              t.start_flow_link(
+                { realm: "anesthesie" },
+                { languageTag: locale },
+              )
             }}</RouterLink
           >
         </div>

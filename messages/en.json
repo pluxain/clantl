@@ -6,5 +6,8 @@
   "checklist_link": "access the checklist",
   "checklist_locale_hint": "Locale of the Checklist",
   "clantl_moto": "Checklists are not Todo Lists",
+  "flow_done": "Flow for {realm} done",
+  "pending_indicator_text": "loading",
+  "start_flow_link": "Start the flow for {realm}",
   "ui_locale_hint": "Locale of the User Interface"
 }

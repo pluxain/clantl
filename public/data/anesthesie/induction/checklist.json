@@ -1,0 +1,25 @@
+{
+  "items": [
+    {
+      "label": "parient / intervention / zone",
+      "keyword": "confirmés",
+      "verified": false
+    },
+    {
+      "label": "adjuvant analgésique",
+      "keyword": "en place",
+      "verified": false
+    },
+    {
+      "label": "profondeur de l'anesthésie",
+      "keyword": "vérifiée",
+      "verified": false
+    }
+  ],
+  "locale": "fr",
+  "name": "avant chirurgie",
+  "nextStep": "chirurgie",
+  "realm": "anesthesie",
+  "resetCount": 0,
+  "step": "induction"
+}

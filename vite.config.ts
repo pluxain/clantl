@@ -1,5 +1,6 @@
 import { defineConfig } from "vite";
 import { paraglide } from "@inlang/paraglide-vite";
+import svgLoader from "vite-svg-loader";
 import tailwindcss from "@tailwindcss/vite";
 import vue from "@vitejs/plugin-vue";
 import path from "path";
@@ -13,11 +14,15 @@ export default defineConfig({
     }),
     tailwindcss(),
     vue(),
+    svgLoader(),
   ],
   resolve: {
     alias: {
+      "@api": path.resolve(__dirname, "./src/api"),
       "@components": path.resolve(__dirname, "./src/components"),
+      "@constants": path.resolve(__dirname, "./src/constants"),
       "@features": path.resolve(__dirname, "./src/features"),
+      "@images": path.resolve(__dirname, "./src/assets/images"),
       "@layouts": path.resolve(__dirname, "./src/layouts"),
       "@locales": path.resolve(__dirname, "./src/paraglide"),
     },

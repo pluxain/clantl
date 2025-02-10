@@ -1,42 +1,19 @@
 <script setup lang="ts">
 import { computed, ref } from "vue";
 import type { Ref } from "vue";
+import { useRoute } from "vue-router";
+import { getChecklist } from "@api";
 import { ClantlButton, ClantlLocale, ClantlNotification } from "@components";
 import * as t from "@locales/messages";
-import { languageTag } from "@locales/runtime";
+import { setLanguageTag } from "@locales/runtime";
 import type { Checklist } from "@types";
 
-const uiLocale = languageTag();
+const { params } = useRoute("checklist");
+const { locale, realm, step } = params;
+setLanguageTag(locale);
+const checklist = await getChecklist(realm, step);
 
-const list: Ref<Checklist> = ref({
-  items: [
-    { label: "matériel d'intubation", keyword: "vérifié", verified: false },
-    { label: "oxygène", keyword: "disponible", verified: false },
-    {
-      label: "circuit / Ballon de réanimation",
-      keyword: "testé",
-      verified: false,
-    },
-    { label: "valve d'échappement", keyword: "Ouverte", verified: false },
-    {
-      label: "ballonnet sonde endotrachéale",
-      keyword: "étanche",
-      verified: false,
-    },
-    { label: "cathéter", keyword: "fonctionnel", verified: false },
-    { label: "procédure de réanimation", keyword: "prête", verified: false },
-    {
-      label: "responsable de la surveillance",
-      keyword: "nommé",
-      verified: false,
-    },
-  ],
-  locale: "fr",
-  nextStep: "Induction",
-  realm: "Anesthésie",
-  resetCount: 0,
-  step: "Avant Induction",
-});
+const list: Ref<Checklist> = ref(checklist);
 
 const current = computed(
   // @ts-expect-error findLastIndex is recent
@@ -78,7 +55,7 @@ function listReset() {
       <div
         class="absolute top-0 right-0 mt-2 mr-2 flex gap-2 text-2xl text-white"
       >
-        <ClantlLocale :locale="uiLocale" :hint="t.ui_locale_hint()" />
+        <ClantlLocale :locale="locale" :hint="t.ui_locale_hint()" />
         <ClantlLocale :locale="list.locale" :hint="t.checklist_locale_hint()" />
         <ClantlButton
           severity="primary"
@@ -90,12 +67,15 @@ function listReset() {
         </ClantlButton>
       </div>
       <div class="header bg-warning p-4 text-white">
-        <h2 class="realm realm text-center text-4xl uppercase">
-          {{ list.realm }}
+        <h2
+          class="realm flex items-center justify-center gap-4 text-3xl uppercase"
+        >
+          <span>{{ list.realm }}</span>
+          <span>{{ list.step }}</span>
         </h2>
-        <h3 class="step text-center text-4xl font-bold uppercase">
-          {{ list.step }}
-        </h3>
+        <h4 class="name text-center text-4xl font-bold uppercase">
+          {{ list.name }}
+        </h4>
       </div>
       <dl class="items text-2xl">
         <div
@@ -143,18 +123,30 @@ function listReset() {
     <ClantlNotification
       v-if="completed"
       severity="success"
-      class="z-10 flex flex-col items-center justify-center opacity-95"
+      class="z-10 flex flex-col items-center justify-center gap-4 opacity-95"
     >
-      <h4 class="mb-4 text-3xl font-bold uppercase">
-        <span class="step">{{ list.step }}</span> {{ t.checklist_completed() }}
+      <h4 class="text-3xl font-bold uppercase">
+        <span class="step">{{ list.step }}</span>
       </h4>
-      <p class="text-3xl font-bold uppercase">
-        {{ t.checklist_completed_next() }}
-        <span class="step">{{ list.nextStep }}</span>
-      </p>
-      <p class="text-4xl font-bold motion-safe:animate-bounce">
-        {{ "\u2304" }}
-      </p>
+      <h4 class="text-3xl font-bold uppercase">
+        <span class="name">{{ list.name }}</span>
+        {{ t.checklist_completed() }}
+      </h4>
+      <RouterLink
+        class="flex flex-col items-center"
+        :to="{
+          name: 'checklist',
+          params: { locale, realm, step: list.nextStep },
+        }"
+      >
+        <p class="text-3xl font-bold uppercase">
+          {{ t.checklist_completed_next() }}
+          <span class="step">{{ list.nextStep }}</span>
+        </p>
+        <p class="text-4xl font-bold motion-safe:animate-bounce">
+          {{ "\u2304" }}
+        </p>
+      </RouterLink>
     </ClantlNotification>
   </section>
 </template>
@@ -173,11 +165,11 @@ function listReset() {
   grid-area: main;
 }
 
-.step::before {
+.name::before {
   content: "< ";
 }
 
-.step::after {
+.name::after {
   content: " >";
 }
 </style>

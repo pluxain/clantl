@@ -27,6 +27,10 @@ export default tseslint.config(
       // "astro/no-set-html-directive": "error"
       "no-console": "error",
       "vue/no-unused-vars": "error",
+      "@typescript-eslint/no-unused-vars": [
+        "error",
+        { argsIgnorePattern: "^_", varsIgnorePattern: "^_" },
+      ],
     },
   },
 );
