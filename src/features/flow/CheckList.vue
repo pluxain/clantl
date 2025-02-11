@@ -3,10 +3,11 @@ import { computed, ref } from "vue";
 import type { Ref } from "vue";
 import { useRoute } from "vue-router";
 import { getChecklist } from "@api";
-import { ClantlButton, ClantlLocale, ClantlNotification } from "@components";
+import { ClantlNotification } from "@components";
 import * as t from "@locales/messages";
 import { setLanguageTag } from "@locales/runtime";
 import type { Checklist } from "@types";
+import ActionBar from "./CheckListActionBar.vue";
 
 const { params } = useRoute("checklist");
 const { locale, realm, step } = params;
@@ -45,27 +46,11 @@ function listReset() {
 <template>
   <section class="wrapper">
     <div class="checklist relative">
-      <div
-        class="absolute top-0 left-0 mt-2 ml-2 flex gap-2 text-2xl text-white"
-      >
-        <RouterLink :to="{ name: 'home' }">
-          {{ "\u27ea" }}
-        </RouterLink>
-      </div>
-      <div
-        class="absolute top-0 right-0 mt-2 mr-2 flex gap-2 text-2xl text-white"
-      >
-        <ClantlLocale :locale="locale" :hint="t.ui_locale_hint()" />
-        <ClantlLocale :locale="list.locale" :hint="t.checklist_locale_hint()" />
-        <ClantlButton
-          severity="primary"
-          :hint="t.btn_reset_checklist_hint()"
-          type="button"
-          @click="listReset"
-        >
-          {{ "\u21BB" }}
-        </ClantlButton>
-      </div>
+      <ActionBar
+        :locale="locale"
+        :list-locale="list.locale"
+        @reset="listReset"
+      />
       <div class="header bg-warning p-4 text-white uppercase">
         <h2 class="flex items-center justify-center gap-4 text-3xl">
           <span class="realm">{{ list.realm }}</span>
