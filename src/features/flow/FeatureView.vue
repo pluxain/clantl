@@ -10,11 +10,11 @@ import { useRoute } from "vue-router";
 const { realm } = useRoute("checklist").params;
 
 const error: Ref<Error | null> = ref(null);
-const isDone = ref(false);
+const isFlowCompleted = ref(false);
 
 onErrorCaptured((err: ApiError) => {
   if (err instanceof HttpNotFoundError) {
-    isDone.value = true;
+    isFlowCompleted.value = true;
   } else {
     error.value = err;
   }
@@ -33,7 +33,7 @@ onErrorCaptured((err: ApiError) => {
       {{ error }}
     </ClantlNotification>
     <ClantlNotification
-      v-else-if="isDone"
+      v-else-if="isFlowCompleted"
       severity="success"
       class="flex flex-col items-center justify-center gap-4 text-3xl font-bold"
     >
