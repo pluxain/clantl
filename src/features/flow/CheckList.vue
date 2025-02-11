@@ -7,7 +7,7 @@ import { ClantlNotification } from "@components";
 import * as t from "@locales/messages";
 import { setLanguageTag } from "@locales/runtime";
 import type { Checklist } from "@types";
-import ActionBar from "./CheckListActionBar.vue";
+import { CheckListActionBar, CheckListHeader } from ".";
 
 const { params } = useRoute("checklist");
 const { locale, realm, step } = params;
@@ -46,20 +46,16 @@ function listReset() {
 <template>
   <section class="wrapper">
     <div class="checklist relative">
-      <ActionBar
+      <CheckListActionBar
         :locale="locale"
         :list-locale="list.locale"
         @reset="listReset"
       />
-      <div class="header bg-warning p-4 text-white uppercase">
-        <h2 class="flex items-center justify-center gap-4 text-3xl">
-          <span class="realm">{{ list.realm }}</span>
-          <span class="step">{{ list.step }}</span>
-        </h2>
-        <h4 class="mt-4 text-center text-4xl font-bold">
-          <span class="name">{{ list.name }}</span>
-        </h4>
-      </div>
+      <CheckListHeader
+        :name="list.name"
+        :realm="list.realm"
+        :step="list.step"
+      />
       <dl class="items text-2xl">
         <div
           v-for="(item, index) in list.items"
