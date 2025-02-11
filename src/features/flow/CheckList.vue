@@ -3,11 +3,9 @@ import { computed, ref } from "vue";
 import type { Ref } from "vue";
 import { useRoute } from "vue-router";
 import { getChecklist } from "@api";
-import { ClantlNotification } from "@components";
-import * as t from "@locales/messages";
 import { setLanguageTag } from "@locales/runtime";
 import type { Checklist } from "@types";
-import { CheckListActionBar, CheckListHeader } from ".";
+import { CheckListActionBar, CheckListCompleted, CheckListHeader } from ".";
 
 const { params } = useRoute("checklist");
 const { locale, realm, step } = params;
@@ -102,34 +100,15 @@ function listReset() {
         &copy; Paul Coppens &amp; Fabrice Levoyer
       </div>
     </div>
-    <ClantlNotification
+    <CheckListCompleted
       v-if="completed"
-      severity="success"
-      class="flex flex-col items-center justify-center gap-4 text-3xl font-bold uppercase opacity-95"
-    >
-      <h4>
-        <span class="step">{{ list.step }}</span>
-      </h4>
-      <h4>
-        <span class="name">{{ list.name }}</span>
-        {{ t.checklist_completed() }}
-      </h4>
-      <RouterLink
-        class="bg-success text-success-solid flex min-w-1/2 flex-col items-center rounded-xl border-2 p-8 text-4xl font-bold"
-        :to="{
-          name: 'checklist',
-          params: { locale, realm, step: list.nextStep },
-        }"
-      >
-        <p>
-          {{ t.checklist_completed_next() }}
-          <span class="step">{{ list.nextStep }}</span>
-        </p>
-        <p class="motion-safe:animate-bounce">
-          {{ "\u2304" }}
-        </p>
-      </RouterLink>
-    </ClantlNotification>
+      class="completed"
+      :locale="locale"
+      :name="list.name"
+      :next-step="list.nextStep"
+      :realm="list.realm"
+      :step="list.step"
+    />
   </section>
 </template>
 
@@ -143,23 +122,7 @@ function listReset() {
   grid-area: main;
 }
 
-.notification {
+.completed {
   grid-area: main;
-}
-
-.step::before {
-  content: "| ";
-}
-
-.step::after {
-  content: " |";
-}
-
-.name::before {
-  content: "< ";
-}
-
-.name::after {
-  content: " >";
 }
 </style>
