@@ -4,7 +4,7 @@ import { ApiError, HttpNotFoundError, InternalServerError } from "./ApiError";
 // TODO: handle fetch errors like CORS or Network Errors (try/catch around fetch and throw dedicated ApiError)
 export async function fetcher<T>(url: Url): Promise<T> {
   // Note: Simulate delay
-  await new Promise((resolve) => setTimeout(resolve, 1000));
+  // await new Promise((resolve) => setTimeout(resolve, 500));
 
   const res = await fetch(url, {
     // Note: for now we only handle JSON
