@@ -27,21 +27,23 @@ defineProps<Props>();
       <span class="name">{{ name }}</span>
       {{ t.checklist_completed() }}
     </h4>
-    <RouterLink
-      class="bg-success text-success-solid flex min-w-1/2 flex-col items-center rounded-xl border-2 p-8 text-4xl font-bold"
-      :to="{
-        name: 'checklist',
-        params: { locale, realm, step: nextStep },
-      }"
-    >
-      <p>
-        {{ t.checklist_completed_next() }}
-        <span class="step">{{ nextStep }}</span>
-      </p>
-      <p class="motion-safe:animate-bounce">
-        {{ "\u2304" }}
-      </p>
-    </RouterLink>
+    <div>
+      <RouterLink
+        class="bg-success text-success-solid flex min-w-1/2 flex-col items-center rounded-xl border-2 p-8 text-4xl font-bold"
+        :to="{
+          name: 'checklist',
+          params: { locale, realm, step: nextStep },
+        }"
+      >
+        <p>
+          {{ t.checklist_completed_next() }}
+          <span class="step">{{ nextStep }}</span>
+        </p>
+        <p class="motion-safe:animate-bounce">
+          {{ "\u2304" }}
+        </p>
+      </RouterLink>
+    </div>
   </ClantlNotification>
 </template>
 

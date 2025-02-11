@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { onErrorCaptured, ref, type Ref } from "vue";
+import { RouterLink } from "vue-router";
 import { HttpNotFoundError, type ApiError } from "@api/ApiError";
 import { ClantlNotification, ClantlPendingIndicator } from "@components";
 import * as t from "@locales/messages";
@@ -34,9 +35,20 @@ onErrorCaptured((err: ApiError) => {
     <ClantlNotification
       v-else-if="isDone"
       severity="success"
-      class="flex items-center justify-center text-3xl font-bold"
+      class="flex flex-col items-center justify-center gap-4 text-3xl font-bold"
     >
-      {{ t.flow_done({ realm }) }}
+      <p>
+        {{ t.flow_done({ realm }) }}
+      </p>
+      <p>
+        <RouterLink
+          class="bg-success text-success-solid flex min-w-1/2 flex-col items-center rounded-xl border-2 p-8 text-4xl font-bold"
+          :to="{ name: 'home' }"
+        >
+          {{ "\u27ea" }}
+          {{ t.go_back_home() }}
+        </RouterLink>
+      </p>
     </ClantlNotification>
     <Suspense v-else>
       <CheckList />
