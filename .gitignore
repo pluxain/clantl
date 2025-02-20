@@ -2,11 +2,17 @@
 logs
 *.log
 npm-debug.log*
+logs
+!src/libs/logs
 
 node_modules
 dist
 dist-ssr
 *.local
+
+# environment variables
+.env
+.env.production
 
 # Editor directories and files
 .vscode/*

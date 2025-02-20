@@ -7,6 +7,9 @@ import path from "path";
 
 // https://vite.dev/config/
 export default defineConfig({
+  build: {
+    outDir: "./dist/client",
+  },
   plugins: [
     paraglide({
       project: "./project.inlang",
