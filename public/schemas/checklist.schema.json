@@ -1,0 +1,74 @@
+{
+  "$id": "https://clantl.lechainonmanquant.studio/schemas/checklist.schema.json",
+  "$schema": "https://json-schema.org/draft-07/schema#",
+  "title": "CheckList",
+  "description": "JSON Schema for a CheckList in clantl",
+  "type": "object",
+  "properties": {
+    "items": {
+      "description": "KillerItems of the CheckList",
+      "type": "array",
+      "items": {
+        "description": "KillerItem of a CheckList",
+        "type": "object",
+        "properties": {
+          "keyword": {
+            "description": "Keyword to verify a KillerItem",
+            "type": "string"
+          },
+          "label": {
+            "description": "Label to define a KillerItem",
+            "type": "string"
+          },
+          "verified": {
+            "description": "Status of a KillerItem",
+            "type": "boolean"
+          }
+        },
+        "required": [
+          "keyword",
+          "label",
+          "verified"
+        ]
+      },
+      "minItems": 1,
+      "uniqueItems": true
+    },
+    "locale": {
+      "description": "Locale of the CheckList",
+      "enum": [
+        "en",
+        "fr"
+      ]
+    },
+    "name": {
+      "description": "Name of the CheckList",
+      "type": "string"
+    },
+    "nextStep": {
+      "description": "Next Step after the CheckList is completed",
+      "type": "string"
+    },
+    "realm": {
+      "description": "Which Realm belongs the CheckList",
+      "type": "string"
+    },
+    "resetCount": {
+      "description": "How many times was the CheckList reset",
+      "type": "number",
+      "minimum": 0
+    },
+    "step": {
+      "description": "Which Step belongs the CheckList",
+      "type": "number"
+    }
+  },
+  "required": [
+    "items",
+    "locale",
+    "name",
+    "nextStep",
+    "realm",
+    "step"
+  ]
+}
