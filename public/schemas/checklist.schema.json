@@ -10,36 +10,14 @@
       "type": "array",
       "items": {
         "description": "KillerItem of a CheckList",
-        "type": "object",
-        "properties": {
-          "keyword": {
-            "description": "Keyword to verify a KillerItem",
-            "type": "string"
-          },
-          "label": {
-            "description": "Label to define a KillerItem",
-            "type": "string"
-          },
-          "verified": {
-            "description": "Status of a KillerItem",
-            "type": "boolean"
-          }
-        },
-        "required": [
-          "keyword",
-          "label",
-          "verified"
-        ]
+        "$ref": "https://clantl.lechainonmanquant.studio/schemas/killeritem.schema.json"
       },
       "minItems": 1,
       "uniqueItems": true
     },
     "locale": {
       "description": "Locale of the CheckList",
-      "enum": [
-        "en",
-        "fr"
-      ]
+      "enum": ["en", "fr"]
     },
     "name": {
       "description": "Name of the CheckList",
@@ -63,12 +41,5 @@
       "type": "number"
     }
   },
-  "required": [
-    "items",
-    "locale",
-    "name",
-    "nextStep",
-    "realm",
-    "step"
-  ]
+  "required": ["items", "locale", "name", "nextStep", "realm", "step"]
 }
