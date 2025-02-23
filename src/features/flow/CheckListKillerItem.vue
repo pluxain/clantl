@@ -41,7 +41,7 @@ const emit = defineEmits<{
       </div>
     </dd>
     <dt
-      class="keyword p-4 font-bold uppercase"
+      class="keyword flex items-center p-4 font-bold uppercase"
       :class="[
         item.verified
           ? 'bg-success border-b border-white text-white'
