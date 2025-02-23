@@ -28,7 +28,6 @@ export type Checklist = {
   name: ChecklistName;
   nextStep: Step;
   realm: Realm;
-  resetCount: number;
   step: Step;
 };
 
