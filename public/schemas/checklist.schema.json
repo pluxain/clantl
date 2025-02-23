@@ -38,7 +38,7 @@
     },
     "step": {
       "description": "Which Step belongs the CheckList",
-      "type": "number"
+      "type": "string"
     }
   },
   "required": ["items", "locale", "name", "nextStep", "realm", "step"]
