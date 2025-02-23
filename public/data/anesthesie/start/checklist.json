@@ -1,4 +1,5 @@
 {
+  "$schema": "https://clantl.lechainonmanquant.studio/schemas/checklist.schema.json",
   "items": [
     {
       "label": "patient",

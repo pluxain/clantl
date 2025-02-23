@@ -1,23 +1,36 @@
 {
+  "$schema": "https://clantl.lechainonmanquant.studio/schemas/checklist.schema.json",
   "items": [
     {
       "label": "matériel d'intubation",
       "keyword": "vérifié",
       "verified": false
     },
-    { "label": "oxygène", "keyword": "disponible", "verified": false },
+    {
+      "label": "oxygène",
+      "keyword": "disponible",
+      "verified": false
+    },
     {
       "label": "circuit / Ballon de réanimation",
       "keyword": "testé",
       "verified": false
     },
-    { "label": "valve d'échappement", "keyword": "Ouverte", "verified": false },
+    {
+      "label": "valve d'échappement",
+      "keyword": "Ouverte",
+      "verified": false
+    },
     {
       "label": "ballonnet sonde endotrachéale",
       "keyword": "étanche",
       "verified": false
     },
-    { "label": "cathéter", "keyword": "fonctionnel", "verified": false },
+    {
+      "label": "cathéter",
+      "keyword": "fonctionnel trop long",
+      "verified": false
+    },
     {
       "label": "procédure de réanimation",
       "keyword": "prête",

@@ -13,6 +13,7 @@
         "$ref": "https://clantl.lechainonmanquant.studio/schemas/killeritem.schema.json"
       },
       "minItems": 1,
+      "maxItems": 8,
       "uniqueItems": true
     },
     "locale": {
