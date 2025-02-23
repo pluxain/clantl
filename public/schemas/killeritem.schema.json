@@ -8,7 +8,8 @@
     "keyword": {
       "description": "Keyword to verify a KillerItem",
       "type": "string",
-      "pattern": "\\w{1,2}"
+      "minLength": 2,
+      "maxLength": 20
     },
     "label": {
       "description": "Label to define a KillerItem",
@@ -19,9 +20,5 @@
       "type": "boolean"
     }
   },
-  "required": [
-    "keyword",
-    "label",
-    "verified"
-  ]
+  "required": ["keyword", "label", "verified"]
 }
