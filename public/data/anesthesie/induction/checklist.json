@@ -21,6 +21,5 @@
   "name": "avant chirurgie",
   "nextStep": "chirurgie",
   "realm": "anesthesie",
-  "resetCount": 0,
   "step": "induction"
 }
