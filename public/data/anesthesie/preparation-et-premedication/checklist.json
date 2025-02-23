@@ -46,6 +46,5 @@
   "name": "avant induction",
   "nextStep": "induction",
   "realm": "anesthesie",
-  "resetCount": 0,
   "step": "preparation-et-premedication"
 }

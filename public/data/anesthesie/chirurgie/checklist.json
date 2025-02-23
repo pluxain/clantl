@@ -21,6 +21,5 @@
   "name": "avant réveil",
   "nextStep": "reveil",
   "realm": "anesthesie",
-  "resetCount": 0,
   "step": "chirurgie"
 }

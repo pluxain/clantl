@@ -32,11 +32,6 @@
       "description": "Which Realm belongs the CheckList",
       "type": "string"
     },
-    "resetCount": {
-      "description": "How many times was the CheckList reset",
-      "type": "number",
-      "minimum": 0
-    },
     "step": {
       "description": "Which Step belongs the CheckList",
       "type": "string"
