@@ -1,4 +1,4 @@
-import path from "path";
+import path from "node:path";
 import { paraglide } from "@inlang/paraglide-vite";
 import tailwindcss from "@tailwindcss/vite";
 import vue from "@vitejs/plugin-vue";

@@ -41,7 +41,9 @@ function check(index: number) {
 }
 
 function listReset() {
-  list.value.items.forEach((item) => (item.verified = false));
+  for (const item of list.value.items) {
+    item.verified = false;
+  }
 }
 </script>
 
