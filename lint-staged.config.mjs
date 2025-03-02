@@ -1,4 +1,3 @@
 export default {
-  "*.{vue,md,mjs,ts,tsx}": ["eslint --fix", "prettier --write"],
-  "*.{html,json}": ["prettier --write"],
+  "*.{vue,md,mjs,ts,tsx,html,json}": ["npx @biomejs/biome check --write"],
 };
