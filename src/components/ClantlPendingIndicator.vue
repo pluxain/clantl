@@ -1,6 +1,6 @@
 <script setup lang="ts">
-import AnimatedVerticalBars from "@images/design/animated-vertical-bars.svg";
-import * as t from "@locales/messages";
+import AnimatedVerticalBars from "#images/design/animated-vertical-bars.svg";
+import * as t from "#locales/messages";
 </script>
 
 <template>

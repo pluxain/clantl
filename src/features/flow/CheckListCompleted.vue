@@ -1,8 +1,8 @@
 <script setup lang="ts">
 import { RouterLink } from "vue-router";
-import { ClantlNotification } from "@components";
-import * as t from "@locales/messages";
-import type { Locale, Realm, Step } from "@types";
+import { ClantlNotification } from "#components";
+import * as t from "#locales/messages";
+import type { Locale, Realm, Step } from "#types";
 
 type Props = {
   locale: Locale;

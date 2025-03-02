@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import type { Severity } from "@types";
+import type { Severity } from "#types";
 
 type Props = {
   severity: Severity;

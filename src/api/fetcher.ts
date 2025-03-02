@@ -1,4 +1,4 @@
-import type { Url } from "@types";
+import type { Url } from "#types";
 import { ApiError, HttpNotFoundError, InternalServerError } from "./ApiError";
 
 // TODO: handle fetch errors like CORS or Network Errors (try/catch around fetch and throw dedicated ApiError)

@@ -1,8 +1,8 @@
 // @ts-check
 import eslint from "@eslint/js";
 import eslintConfigPrettier from "eslint-config-prettier";
-import tseslint from "typescript-eslint";
 import pluginVue from "eslint-plugin-vue";
+import tseslint from "typescript-eslint";
 export default tseslint.config(
   eslint.configs.recommended,
   // add more generic rule sets here, such as:

@@ -1,6 +1,6 @@
-import type { Checklist, Realm, Step } from "@types";
-import { fetcher } from "./fetcher";
+import type { Checklist, Realm, Step } from "#types";
 import { ApiError, HttpNotFoundError, InternalServerError } from "./ApiError";
+import { fetcher } from "./fetcher";
 
 export async function getChecklist(
   realm: Realm,
