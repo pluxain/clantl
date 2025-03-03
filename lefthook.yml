@@ -1,0 +1,39 @@
+commit-msg:
+  jobs:
+    - name: commit message validation
+      tags:
+        - generic
+        - git
+      run: npx --no-install commitlint --edit
+
+pre-push:
+  jobs:
+    - name: type check
+      tags:
+        - frontend
+        - typecheck
+      run: npx vue-tsc -p tsconfig.app.json --noEmit --pretty
+    - name: build
+      tags:
+        - frontend
+        - build
+      run: npm run build
+
+pre-commit:
+  parallel: true
+  jobs:
+    - name: branch name validation
+      tags:
+        - generic
+        - git
+      skip:
+        - rebase
+      run: npx validate-branch-name
+    - name: lint and format
+      tags:
+        - frontend 
+        - lint
+        - format
+      run: npx @biomejs/biome check {staged_files} --write
+      glob: "*.{vue,ts,tsx,md,mjs,html,json}"
+      stage_fixed: true
