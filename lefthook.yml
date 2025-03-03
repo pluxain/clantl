@@ -31,9 +31,20 @@ pre-commit:
       run: npx validate-branch-name
     - name: lint and format
       tags:
-        - frontend 
+        - frontend
         - lint
         - format
       run: npx @biomejs/biome check {staged_files} --write
       glob: "*.{vue,ts,tsx,md,mjs,html,json}"
       stage_fixed: true
+
+post-merge:
+  scripts:
+    deploy-frontend:
+      tags:
+        - frontend
+        - ci/cd
+        - build
+      only:
+        - main
+      runner: bash
