@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import type { Realm, Step } from "@types";
+import type { Realm, Step } from "#types";
 
 type Props = {
   name: string;

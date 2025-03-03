@@ -1,7 +1,7 @@
 <script setup lang="ts">
-import * as t from "@locales/messages";
-import { availableLanguageTags } from "@locales/runtime";
-import { ClantlLocale } from "@components";
+import { ClantlLocale } from "#components";
+import * as t from "#locales/messages";
+import { availableLanguageTags } from "#locales/runtime";
 </script>
 <template>
   <section class="mx-4 mt-8 md:mx-36">

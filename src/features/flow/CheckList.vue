@@ -2,9 +2,9 @@
 import { computed, ref } from "vue";
 import type { Ref } from "vue";
 import { useRoute } from "vue-router";
-import { getChecklist } from "@api";
-import { setLanguageTag } from "@locales/runtime";
-import type { Checklist } from "@types";
+import { getChecklist } from "#api";
+import { setLanguageTag } from "#locales/runtime";
+import type { Checklist } from "#types";
 import {
   CheckListActionBar,
   CheckListCompleted,
@@ -41,7 +41,9 @@ function check(index: number) {
 }
 
 function listReset() {
-  list.value.items.forEach((item) => (item.verified = false));
+  for (const item of list.value.items) {
+    item.verified = false;
+  }
 }
 </script>
 

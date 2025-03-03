@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import type { KillerItem } from "@types";
+import type { KillerItem } from "#types";
 
 type Props = {
   isCurrent: boolean;
@@ -8,9 +8,7 @@ type Props = {
 
 defineProps<Props>();
 
-const emit = defineEmits<{
-  (e: "verified"): void;
-}>();
+const emit = defineEmits<(e: "verified") => void>();
 </script>
 
 <template>

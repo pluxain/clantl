@@ -2,11 +2,8 @@
   "extends": "@vue/tsconfig/tsconfig.dom.json",
   "compilerOptions": {
     "tsBuildInfoFile": "./node_modules/.tmp/tsconfig.app.tsbuildinfo",
-
-    /* Linting */
     "strict": true,
     "noUnusedLocals": true,
-    /* was set to true, but this breaks build because of paraglide JS. Rely on ESlint in previous stages */
     "noUnusedParameters": false,
     "noFallthroughCasesInSwitch": true,
     "noUncheckedSideEffectImports": true,
@@ -14,22 +11,22 @@
     "checkJs": true,
     "baseUrl": ".",
     "paths": {
-      "@api": ["src/api/"],
-      "@api/*": ["src/api/*"],
-      "@components": ["src/components/"],
-      "@components/*": ["src/components/*"],
-      "@constants": ["src/constants/"],
-      "@constants/*": ["src/constants/*"],
-      "@features": ["src/features/"],
-      "@features/*": ["src/features/*"],
-      "@images": ["src/assets/images/"],
-      "@images/*": ["src/assets/images/*"],
-      "@layouts": ["src/layouts/"],
-      "@layouts/*": ["src/layouts/*"],
-      "@locales": ["src/paraglide/"],
-      "@locales/*": ["src/paraglide/*"],
-      "@types": ["src/types/"],
-      "@types/*": ["src/types/*"]
+      "#api": ["src/api/"],
+      "#api/*": ["src/api/*"],
+      "#components": ["src/components/"],
+      "#components/*": ["src/components/*"],
+      "#constants": ["src/constants/"],
+      "#constants/*": ["src/constants/*"],
+      "#features": ["src/features/"],
+      "#features/*": ["src/features/*"],
+      "#images": ["src/assets/images/"],
+      "#images/*": ["src/assets/images/*"],
+      "#layouts": ["src/layouts/"],
+      "#layouts/*": ["src/layouts/*"],
+      "#locales": ["src/paraglide/"],
+      "#locales/*": ["src/paraglide/*"],
+      "#types": ["src/types/"],
+      "#types/*": ["src/types/*"]
     }
   },
   "include": ["src/**/*.ts", "src/**/*.tsx", "src/**/*.vue"]

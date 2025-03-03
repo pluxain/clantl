@@ -1,4 +1,4 @@
-import { realms, steps } from "@constants";
+import type { realms, steps } from "#constants";
 
 export type Url = string;
 

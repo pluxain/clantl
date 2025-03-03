@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import type { Locale } from "@types";
+import type { Locale } from "#types";
 
 type Props = {
   locale: Locale;

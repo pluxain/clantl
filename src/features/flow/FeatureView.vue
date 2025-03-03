@@ -1,11 +1,10 @@
 <script setup lang="ts">
-import { onErrorCaptured, ref, type Ref } from "vue";
-import { RouterLink } from "vue-router";
-import { HttpNotFoundError, type ApiError } from "@api/ApiError";
-import { ClantlNotification, ClantlPendingIndicator } from "@components";
-import * as t from "@locales/messages";
+import { type Ref, onErrorCaptured, ref } from "vue";
+import { RouterLink, useRoute } from "vue-router";
+import { type ApiError, HttpNotFoundError } from "#api/ApiError";
+import { ClantlNotification, ClantlPendingIndicator } from "#components";
+import * as t from "#locales/messages";
 import { CheckList } from ".";
-import { useRoute } from "vue-router";
 
 const { realm } = useRoute("checklist").params;
 

@@ -1,15 +1,13 @@
 <script setup lang="ts">
 import { RouterLink } from "vue-router";
-import { ClantlButton, ClantlLocale } from "@components";
-import * as t from "@locales/messages";
-import type { Locale } from "@types";
+import { ClantlButton, ClantlLocale } from "#components";
+import * as t from "#locales/messages";
+import type { Locale } from "#types";
 
 type Props = { locale: Locale; listLocale: Locale };
 
 defineProps<Props>();
-const emit = defineEmits<{
-  (e: "reset"): void;
-}>();
+const emit = defineEmits<(e: "reset") => void>();
 </script>
 
 <template>
