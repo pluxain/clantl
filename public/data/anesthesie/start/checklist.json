@@ -4,29 +4,35 @@
     {
       "label": "patient",
       "keyword": "nommé",
+      "kind": "KillerItem",
       "verified": false
     },
     {
       "label": "nature de l'intervention",
       "keyword": "nommée",
+      "kind": "KillerItem",
       "verified": false
     },
     {
       "label": "zone de l'intervention",
       "keyword": "définie",
+      "kind": "KillerItem",
       "verified": false
     },
     {
       "label": "examen préanesthésique",
       "keyword": "effectué",
+      "kind": "KillerItem",
       "verified": false
     },
     {
       "label": "consentement du propriétaire",
       "keyword": "signé",
+      "kind": "KillerItem",
       "verified": false
     }
   ],
+  "kind": "CheckList",
   "locale": "fr",
   "name": "avant prémédication",
   "nextStep": "preparation-et-premedication",

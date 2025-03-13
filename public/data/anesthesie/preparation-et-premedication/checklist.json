@@ -4,44 +4,53 @@
     {
       "label": "matériel d'intubation",
       "keyword": "vérifié",
+      "kind": "KillerItem",
       "verified": false
     },
     {
       "label": "oxygène",
       "keyword": "disponible",
+      "kind": "KillerItem",
       "verified": false
     },
     {
       "label": "circuit / Ballon de réanimation",
       "keyword": "testé",
+      "kind": "KillerItem",
       "verified": false
     },
     {
       "label": "valve d'échappement",
       "keyword": "Ouverte",
+      "kind": "KillerItem",
       "verified": false
     },
     {
       "label": "ballonnet sonde endotrachéale",
       "keyword": "étanche",
+      "kind": "KillerItem",
       "verified": false
     },
     {
       "label": "cathéter",
       "keyword": "fonctionnel",
+      "kind": "KillerItem",
       "verified": false
     },
     {
       "label": "procédure de réanimation",
       "keyword": "prête",
+      "kind": "KillerItem",
       "verified": false
     },
     {
       "label": "responsable de la surveillance",
       "keyword": "nommé",
+      "kind": "KillerItem",
       "verified": false
     }
   ],
+  "kind": "CheckList",
   "locale": "fr",
   "name": "avant induction",
   "nextStep": "induction",
