@@ -1,5 +1,5 @@
 {
-  "$schema": "https://clantl.lechainonmanquant.studio/schemas/checklist.schema.json",
+  "$schema": "https://raw.githubusercontent.com/pluxain/clantl/refs/heads/main/public/schemas/checklist.schema.json",
   "items": [
     {
       "label": "patient",
