@@ -3,6 +3,7 @@ import type { Severity } from "#types";
 
 type Props = {
   severity: Severity;
+  type: HTMLButtonElement["type"];
   hint?: string;
 };
 
@@ -11,21 +12,21 @@ defineProps<Props>();
 
 <template>
   <button
-    type="button"
-    class="button rounded-md border px-1"
+    class="button rounded-md px-1"
     :title="hint"
+    :type="type"
     :class="[
       {
-        'border-danger-accent bg-danger-solid text-danger':
+        'bg-danger text-white':
           severity === 'danger',
-        'border-info-accent bg-info-solid text-info': severity === 'info',
-        'border-primary-accent bg-primary-solid text-primary':
+        'bg-info text-black': severity === 'info',
+        'bg-primary text-white':
           severity === 'primary',
-        'border-secondary-accent bg-secondary-solid text-secondary':
+        'bg-secondary text-white':
           severity === 'secondary',
-        'border-success-accent bg-success-solid text-success':
+        'bg-success text-white':
           severity === 'success',
-        'border-warning-accent bg-warning-solid text-warning':
+        'bg-warning text-black':
           severity === 'warning',
       },
       severity,

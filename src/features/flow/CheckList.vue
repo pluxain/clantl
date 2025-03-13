@@ -5,12 +5,7 @@ import { useRoute } from "vue-router";
 import { getChecklist } from "#api";
 import { setLanguageTag } from "#locales/runtime";
 import type { Checklist } from "#types";
-import {
-  CheckListActionBar,
-  CheckListCompleted,
-  CheckListHeader,
-  CheckListKillerItem,
-} from ".";
+import { CheckListCompleted, CheckListHeader, CheckListKillerItem } from ".";
 
 const { params } = useRoute("checklist");
 const { locale, realm, step } = params;
@@ -50,15 +45,11 @@ function listReset() {
 <template>
   <section class="wrapper">
     <div class="checklist relative">
-      <CheckListActionBar
-        :locale="locale"
-        :list-locale="list.locale"
-        @reset="listReset"
-      />
       <CheckListHeader
         :name="list.name"
         :realm="list.realm"
         :step="list.step"
+        @reset="listReset"
       />
       <dl class="items text-2xl">
         <CheckListKillerItem
