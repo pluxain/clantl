@@ -16,6 +16,10 @@
       "maxItems": 8,
       "uniqueItems": true
     },
+    "kind": {
+      "description": "The discriminating property of the file",
+      "const": "CheckList"
+    },
     "locale": {
       "description": "Locale of the CheckList",
       "enum": ["en", "fr"]

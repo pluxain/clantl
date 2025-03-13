@@ -11,6 +11,10 @@
       "minLength": 2,
       "maxLength": 20
     },
+    "kind": {
+      "description": "The discriminating property of the file",
+      "const": "KillerItem"
+    },
     "label": {
       "description": "Label to define a KillerItem",
       "type": "string"
@@ -20,5 +24,5 @@
       "type": "boolean"
     }
   },
-  "required": ["keyword", "label", "verified"]
+  "required": ["keyword", "kind", "label", "verified"]
 }
