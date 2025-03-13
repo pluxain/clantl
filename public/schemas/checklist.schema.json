@@ -1,5 +1,5 @@
 {
-  "$id": "https://clantl.lechainonmanquant.studio/schemas/checklist.schema.json",
+  "$id": "https://raw.githubusercontent.com/pluxain/clantl/refs/heads/main/public/schemas/checklist.schema.json",
   "$schema": "https://json-schema.org/draft-07/schema#",
   "title": "CheckList",
   "description": "JSON Schema for a CheckList in clantl",
@@ -10,11 +10,15 @@
       "type": "array",
       "items": {
         "description": "KillerItem of a CheckList",
-        "$ref": "https://clantl.lechainonmanquant.studio/schemas/killeritem.schema.json"
+        "$ref": "https://raw.githubusercontent.com/pluxain/clantl/refs/heads/main/public/schemas/killeritem.schema.json"
       },
       "minItems": 1,
       "maxItems": 8,
       "uniqueItems": true
+    },
+    "kind": {
+      "description": "The discriminating property of the file",
+      "const": "CheckList"
     },
     "locale": {
       "description": "Locale of the CheckList",
