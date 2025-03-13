@@ -1,12 +1,8 @@
 <script setup lang="ts">
 import { RouterLink } from "vue-router";
-import { ClantlButton, ClantlLocale } from "#components";
+import { ClantlButton } from "#components";
 import * as t from "#locales/messages";
-import type { Locale } from "#types";
 
-type Props = { locale: Locale; listLocale: Locale };
-
-defineProps<Props>();
 const emit = defineEmits<(e: "reset") => void>();
 </script>
 
@@ -17,8 +13,6 @@ const emit = defineEmits<(e: "reset") => void>();
     </RouterLink>
   </div>
   <div class="absolute top-0 right-0 mt-2 mr-2 flex gap-2 text-2xl text-white">
-    <ClantlLocale :locale="locale" :hint="t.ui_locale_hint()" />
-    <ClantlLocale :locale="listLocale" :hint="t.checklist_locale_hint()" />
     <ClantlButton
       severity="primary"
       :hint="t.btn_reset_checklist_hint()"

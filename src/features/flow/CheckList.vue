@@ -50,11 +50,7 @@ function listReset() {
 <template>
   <section class="wrapper">
     <div class="checklist relative">
-      <CheckListActionBar
-        :locale="locale"
-        :list-locale="list.locale"
-        @reset="listReset"
-      />
+      <CheckListActionBar @reset="listReset" />
       <CheckListHeader
         :name="list.name"
         :realm="list.realm"
