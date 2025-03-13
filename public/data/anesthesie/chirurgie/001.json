@@ -4,19 +4,23 @@
     {
       "label": "plan thérapeutique post-intervention",
       "keyword": "défini",
+      "kind": "KillerItem",
       "verified": false
     },
     {
       "label": "plan analgésique",
       "keyword": "en place",
+      "kind": "KillerItem",
       "verified": false
     },
     {
       "label": "surveillance post-anesthésique",
       "keyword": "définie",
+      "kind": "KillerItem",
       "verified": false
     }
   ],
+  "kind": "CheckList",
   "locale": "fr",
   "name": "avant réveil",
   "nextStep": "reveil",

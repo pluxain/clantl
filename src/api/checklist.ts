@@ -11,7 +11,7 @@ export async function getChecklist(
   // Note: for now we do not consider locale as a level of depth.
   // Actually, the realm and step should be localized.
   try {
-    return await fetcher<Checklist>(`/data/${realm}/${step}/checklist.json`);
+    return await fetcher<Checklist>(`/data/${realm}/${step}/001.json`);
   } catch (err) {
     if (err instanceof HttpNotFoundError) {
       // eslint-disable-next-line no-console

@@ -4,19 +4,23 @@
     {
       "label": "parient / intervention / zone",
       "keyword": "confirmés",
+      "kind": "KillerItem",
       "verified": false
     },
     {
       "label": "adjuvant analgésique",
       "keyword": "en place",
+      "kind": "KillerItem",
       "verified": false
     },
     {
       "label": "profondeur de l'anesthésie",
       "keyword": "vérifiée",
+      "kind": "KillerItem",
       "verified": false
     }
   ],
+  "kind": "CheckList",
   "locale": "fr",
   "name": "avant chirurgie",
   "nextStep": "chirurgie",
