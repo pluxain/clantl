@@ -1,5 +1,5 @@
 import path from "node:path";
-import { paraglide } from "@inlang/paraglide-vite";
+import { paraglideVitePlugin } from "@inlang/paraglide-js";
 import tailwindcss from "@tailwindcss/vite";
 import vue from "@vitejs/plugin-vue";
 import { defineConfig } from "vite";
@@ -11,7 +11,7 @@ export default defineConfig({
     outDir: "./dist/client",
   },
   plugins: [
-    paraglide({
+    paraglideVitePlugin({
       project: "./project.inlang",
       outdir: "./src/paraglide",
     }),
