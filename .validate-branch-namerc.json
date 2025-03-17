@@ -1,4 +1,4 @@
 {
-  "pattern": "^(main){1}$|^(b|f|h|r)/(\\d+).+$",
-  "errorMsg": "Branch name must start with `b/`(bugfix), `f/`(feature), `h/`(hotfix), `r/`(refactor) and be followed by `xxx` where xxx is the issue number"
+  "pattern": "^(main){1}$|^(b|c|f|h|r)/(\\d+).+$",
+  "errorMsg": "Branch name must start with `b/`(bugfix), `c/`(chore), `f/`(feature), `h/`(hotfix), `r/`(refactor) and be followed by `xxx` where xxx is the issue number"
 }
