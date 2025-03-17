@@ -1,10 +1,10 @@
 import { realms, steps } from "#constants";
-import { availableLanguageTags } from "#locales/runtime";
+import { locales } from "#locales/runtime";
 // Try to use [dynamic imports](https://router.vuejs.org/guide/advanced/lazy-loading.html#Lazy-Loading-Routes) as much as possible
 const HomeView = () => import("#features/home");
 const FlowView = () => import("#features/flow");
 
-const localesMatch = availableLanguageTags.join("|");
+const localesMatch = locales.join("|");
 const realmsMatch = realms.join("|");
 const stepsMatch = steps.join("|");
 

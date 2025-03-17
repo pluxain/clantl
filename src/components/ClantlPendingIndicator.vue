@@ -6,6 +6,6 @@ import * as t from "#locales/messages";
 <template>
   <AnimatedVerticalBars
     class="flex items-center justify-center"
-    :title="t.pending_indicator_text()"
+    :title="t['ui.pending_indicator_text']()"
   />
 </template>

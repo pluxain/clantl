@@ -37,7 +37,7 @@ onErrorCaptured((err: ApiError) => {
       class="flex flex-col items-center justify-center gap-4 text-3xl font-bold"
     >
       <p>
-        {{ t.flow_done({ realm }) }}
+        {{ t['flow.done']({ realm }) }}
       </p>
       <p>
         <RouterLink
@@ -45,7 +45,7 @@ onErrorCaptured((err: ApiError) => {
           :to="{ name: 'home' }"
         >
           {{ "\u27ea" }}
-          {{ t.go_back_home() }}
+          {{ t["ui.go_back_home"]() }}
         </RouterLink>
       </p>
     </ClantlNotification>

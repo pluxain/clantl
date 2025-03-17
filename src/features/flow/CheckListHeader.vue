@@ -18,7 +18,7 @@ const emit = defineEmits<(e: "reset") => void>();
 <template>
   <div class="header grid grid-cols-8 bg-warning p-4 text-white uppercase">
     <div class="flex items-center justify-start font-bold text-4xl">
-      <RouterLink :to="{ name: 'home' }" :title="t.go_back_home()">
+      <RouterLink :to="{ name: 'home' }" :title="t['ui.go_back_home']()">
         {{ "\u27ea" }}
       </RouterLink>
     </div>
@@ -36,7 +36,7 @@ const emit = defineEmits<(e: "reset") => void>();
     <div class="flex items-center justify-end font-bold text-4xl">
       <ClantlButton
         severity="primary"
-        :hint="t.btn_reset_checklist_hint()"
+        :hint="t['checklist.reset_hint']()"
         type="button"
         @click="emit('reset')"
       >

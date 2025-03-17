@@ -25,7 +25,7 @@ defineProps<Props>();
     </h4>
     <h4>
       <span class="name">{{ name }}</span>
-      {{ t.checklist_completed() }}
+      {{ t["checklist.completed"]() }}
     </h4>
     <div>
       <RouterLink
@@ -36,7 +36,7 @@ defineProps<Props>();
         }"
       >
         <p>
-          {{ t.checklist_completed_next() }}
+          {{ t["checklist.next"]() }}
           <span class="step">{{ nextStep }}</span>
         </p>
         <p class="motion-safe:animate-bounce">

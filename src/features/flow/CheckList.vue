@@ -3,13 +3,13 @@ import { computed, ref } from "vue";
 import type { Ref } from "vue";
 import { useRoute } from "vue-router";
 import { getChecklist } from "#api";
-import { setLanguageTag } from "#locales/runtime";
+import { setLocale } from "#locales/runtime";
 import type { Checklist } from "#types";
 import { CheckListCompleted, CheckListHeader, CheckListKillerItem } from ".";
 
 const { params } = useRoute("checklist");
 const { locale, realm, step } = params;
-setLanguageTag(locale);
+setLocale(locale);
 const checklist = await getChecklist(realm, step);
 
 const list: Ref<Checklist> = ref(checklist);
