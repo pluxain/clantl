@@ -6,7 +6,7 @@ import { locales } from "#locales/runtime";
 <template>
   <section class="mx-4 mt-8 md:mx-36">
     <h1 class="text-center text-4xl">
-      <abbr :title="t.clantl_moto()">clantl</abbr>
+      <abbr :title="t['clantl.moto']()">clantl</abbr>
     </h1>
     <div class="mt-8 flex flex-col gap-2 md:text-lg">
       <div v-for="locale in locales" :key="locale">
@@ -21,7 +21,7 @@ import { locales } from "#locales/runtime";
             }"
             class="underline"
             >{{
-              t.start_flow_link(
+              t["flow.start_link"](
                 { realm: "anesthesie" },
                 { locale },
               )

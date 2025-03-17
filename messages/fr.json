@@ -1,14 +1,20 @@
 {
   "$schema": "https://inlang.com/schema/inlang-message-format",
-  "btn_reset_checklist_hint": "réinitialiser la liste de vérification",
-  "checklist_completed": "liste de vérification complétée !",
-  "checklist_completed_next": "prêt pour",
-  "checklist_link": "accéder à la liste de vérification",
-  "checklist_locale_hint": "Locale de la liste de vérification",
-  "clantl_moto": "Une liste de vérification n'est pas une liste de courses",
-  "flow_done": "Processus pour {realm} terminé",
-  "go_back_home": "Retourner à l'écran d'accueil",
-  "pending_indicator_text": "chargement",
-  "start_flow_link": "Commencer le flow pour {realm}",
-  "ui_locale_hint": "Locale de l'interface utilisateur"
+  "checklist": {
+    "completed": "liste de vérification complétée !",
+    "link": "accéder à la liste de vérification",
+    "next": "prêt pour",
+    "reset_hint": "réinitialiser la liste de vérification"
+  },
+  "clantl": {
+    "moto": "Une liste de vérification n'est pas une liste de courses"
+  },
+  "flow": {
+    "done": "Processus pour {realm} terminé",
+    "start_link": "Commencer le flow pour {realm}"
+  },
+  "ui": {
+    "go_back_home": "Retourner à l'écran d'accueil",
+    "pending_indicator_text": "chargement"
+  }
 }
